@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Basic Cart System</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+    <div class="Buttons">
+      <button id="showQuantityButton" onclick="console.log(`Cart Quantity: ${cartQuantity}`)">Show Quantity</button>
+      <button id="addCartButton" onclick="
+        cartQuantity += 1;
+        console.log(`Cart Quantity: ${cartQuantity}`);
+      "
+      >Add to Cart</button>
+      <button id="addTwoButton" onclick="
+        cartQuantity += 2;
+        console.log(`Cart Qauntity: ${cartQuantity}`);
+      "
+      >+2</button>
+      <button id="addThreeButton" onclick="
+       cartQuantity +=3;
+       console.log(`Cart Quantity:${cartQuantity}`);
+      "
+      >+3</button>
+      <button id="resetCartButton"
+      onclick="
+        cartQuantity = 0;
+        console.log(`Cart was Reset\nCart Quantity: ${cartQuantity}`);"
+      >Reset Cart</button>
+    </div>
+  </body>
+</html>
