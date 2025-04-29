@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans. If-Statements</title>
+</head>
+<body>
+    <h3>Great Me</h3>
+    <button onclick="
+        let hour = Math.floor(Math.random()*24);
+        let show ='';
+        if(hour>=6 && hour<12){
+            show = 'Good moring!';
+        } else if(hour>=12 && hour<17){
+            show ='Good afternoon!';
+        } else{
+            show = 'Good night!';
+        }
+        alert(`hour =${hour} ${show}`);
+    ">Press to Great</button>
+</body>
+</html>
