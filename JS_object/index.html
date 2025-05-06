@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        const product = {
+            Name: 'socks',
+            price: 100,
+            ['Company-name']: 'Adidas' //or this can be write as on    Company-name whithout any comas
+        }
+        console.log(product);
+        product.Name = 'old Socks';
+        console.log(product);
+        product.size = 'Large';
+        console.log(product);
+        console.log(product['Company-name']);
+        delete product.size;
+        console.log(product);
+    </script>
+</body>
+</html>
