@@ -10,8 +10,35 @@
         const product = {
             Name: 'socks',
             price: 100,
-            ['Company-name']: 'Adidas' //or this can be write as on '[Company-name]' whithout any comas
+            ['Company-name']: 'Adidas', //or this can be write as on '[Company-name]' whithout any comas
+            rating: {
+                stars: 4.5,
+                count: 87
+            },
+            fun: function function1(){
+                console.log('Function in the object !');
+            }
         }
+        const NONjsonObject = {
+            name: 'Toyota',
+            color: 'Red',
+            fun: function method1(){              //Using JavaScript Object Syntax
+                console.log('this is object');
+            },
+            rating: {
+                stars: 5,
+                count: 87
+            }
+        }
+        const jsonObject = {
+            "name": "Toyota",    //using JSON Syntax
+            "color": "Red",      //no methods can be here in Json and it can be read by other languages like (c,c++,Java, etc)
+            "rating": {          //Use Json so that my data can be read in 2 different languages or may be more
+                "stars": 5,      // use json to store data in file or database so later other languages can read it from there
+                "count": 87      //
+            }
+        }
+
         console.log(product);
         product.Name = 'old Socks';
         console.log(product);
@@ -22,6 +49,21 @@
         console.log(product['Company-name']);
         delete product.size;
         console.log(product);
+
+        console.log(product.rating.count);
+        console.log(product.count);
+        product.fun();
+
+        converted_non_Json_object = JSON.stringify(NONjsonObject);
+        // this just converted the non json object to json object
+
+        console.log(JSON.parse(converted_non_Json_object));
+        // this can convert the Json object to non json object
+        
+        
+
+
+
     </script>
 </body>
 </html>
