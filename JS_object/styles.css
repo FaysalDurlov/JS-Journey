@@ -1,0 +1,11 @@
+p{
+    font-weight: 900;
+}
+.Button_p{
+    display: inline-block; 
+    margin-right: 10px;
+}
+button{
+    background-color: brown;
+    color: white;
+}
