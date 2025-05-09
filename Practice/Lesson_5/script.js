@@ -1,5 +1,7 @@
-let calculation = "";
+let calculation = localStorage.getItem('calculation')||"";
 function updateCalculation(value){
-    return value
+    calculation+=value;
+    console.log(calculation);
+    localStorage.setItem('calculation',calculation);
 }
-calculation+=updateCalculation()
+console.log(calculation)
