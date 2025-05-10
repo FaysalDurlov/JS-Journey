@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity Project</title>
+</head>
+<body>
+    <div>
+        <button onclick="
+            showQuantity();
+        ">Show Quantity</button>
+        <button onclick="
+            updateCart('+1');
+        ">Add to Cart</button>
+        <button onclick="
+            updateCart('+2');
+        ">+2</button>
+        <button onclick="
+            updateCart('+3');
+        ">+3</button>
+        <button onclick="
+            updateCart('+4');
+        ">+4</button>
+        <button onclick="
+            updateCart('+5');
+        ">+5</button>
+        <button onclick="
+            updateCart('-1');
+        ">Remove from Cart</button>
+        <button onclick="
+            updateCart('-2');
+        ">-2</button>
+        <button onclick="
+            updateCart('-3');
+        ">-3</button>
+    </div>
+    <p>Cart Quantity: <Span class="Result"></Span></p>
+    <script src="cart.js"></script>
+</body>
+</html>

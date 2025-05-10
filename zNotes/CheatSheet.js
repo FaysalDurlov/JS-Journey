@@ -58,7 +58,10 @@ document.querySelector('htmlTag')
 // with this we can get any html tag we want in Js like button,div,p etc. 
 //but if same tag 2 or more time we need class. same goes for ID
 document.querySelector('.className')
-// with these we can't manupulate the conent but we can just get them (like read only)
+// with these we can't manupulate the conent but we can just get them (like read only) 
+// same goes for .innerText
+
+
 document.querySelector('htmlTag').innerHTML
 // with this we can manupulate the content of "htmlTag"
 
@@ -67,3 +70,6 @@ document.body.innerHTML
 // this innerHTML gives the html tag that is under body. if I put div then it returns html inside div
 document.body.innerText
 // retruns the text inside of the tag. why use this innerhtml return spaces but innerTxt doesn't
+
+document.querySelector('input').value 
+// returns a input. We can't use innerHTML bcz input does't have closing tag

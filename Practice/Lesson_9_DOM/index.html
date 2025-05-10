@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9 Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <p class="heading">This is a Practice for DOM</p>
+        <div class="headTailsGame">
+            <button class="Button_9a" onclick=" 
+                playGame('Button_9a');
+            ">Heads</button>
+            <button class="Button_9b" onclick="
+                playGame('Button_9b');
+            ">Tails</button>
+        </div>
+    <p class="headTailsOutput"></p>
+    </div>
+    <div class="SubmitInfo">
+        <input placeholder="Name" class="NameInput" onkeydown="
+                if(event.key === 'Enter'){
+                    submit();
+                }
+            ">
+        <button class="submitButton" onclick="
+            submit();
+        ">Submit</button>
+    </div>
+    <div class="InputText">
+        <p class="submitButton_output"></p>
+        <input class="inputText" onkeyup="
+            inputText();
+        ">
+        <p class="inputOutput"></p>
+    </div>
+    <p><a href="cart.html">Click Here</a> For the Cart Project</p>
+    <p><a href="calculator.html">Click Here</a> For the Calculator Project</p>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

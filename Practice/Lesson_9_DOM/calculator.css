@@ -1,0 +1,8 @@
+div{
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 120px;
+    row-gap: 20px;
+}
