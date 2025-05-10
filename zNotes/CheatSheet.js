@@ -73,3 +73,12 @@ document.body.innerText
 
 document.querySelector('input').value 
 // returns a input. We can't use innerHTML bcz input does't have closing tag
+
+
+// can use in css after any action/event design 
+htmlTag.classList.add('className')
+// with this we can add a new class in that htmlTag atribute
+
+htmlTag.classList.remove('className')
+// with this we can remove a class from the htmlTag atribute
+// Here no need dot for class name like document Query
