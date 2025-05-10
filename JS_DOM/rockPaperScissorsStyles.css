@@ -1,0 +1,35 @@
+h3{
+    color: brown;
+    margin: auto;
+    width: 400px;
+    font-size: 30px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    color: white;
+}
+button{
+    background-color: #1434A4;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 800;
+}
+#resetButton{
+    display: flex;
+    justify-content: center;
+    background-color: #D22B2B;
+    margin:  auto;
+
+}
+.output{
+    margin: auto;
+    width: 270px;
+}
+p{
+    font-weight: 900;
+}

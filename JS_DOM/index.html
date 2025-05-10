@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+</head>
+<body>
+    <div>
+        <p>YouTube Subscribe Button</p>
+        <button class="SubscribeButton" onclick="
+            subscribe();
+        ">Subscribe</button>
+    </div>
+    <div>
+        <p>Rock paper Scissors</p>
+        <a href="rockPaperScissors.html">Click here</a>
+    </div>
+    <div>
+        <p>Amazon Shiping Calculator</p>
+        <p>Orders Under $40 = +10 shiping.</p>
+        <p>Orders over $40 = FREE shiping.</p>
+        <input placeholder="Cost of Order" class="js_input_price" onkeydown="
+            eventhandleCost(event);
+        ">
+        <button onclick="
+            calculate();
+        ">Calculate</button>
+    </div>
+    <p class="final_price"></p>
+    <a href="">CSS version of these projects</a>
+    <script src="index.js"></script>
+</body>
+</html>
