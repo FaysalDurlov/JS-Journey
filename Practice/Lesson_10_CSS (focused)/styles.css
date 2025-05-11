@@ -1,0 +1,32 @@
+body{
+    font-family: Arial;
+}
+.SubscribeButton{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+.isSubscribedButton{
+    background-color: #F0F0F0;
+    color: black;
+}
+.js_input_price{
+    font-size: 15px;
+    padding: 10px;
+}
+.CalculateButton{
+    border: none;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding: 13px 15px;
+    cursor: pointer;
+}
+.final_price{
+    margin-bottom: 50px;
+}
