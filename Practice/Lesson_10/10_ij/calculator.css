@@ -1,0 +1,37 @@
+body{
+    font-family: Arial;
+    background-color: #000000;
+    color: white;
+}
+.CalculatorDiv{
+    display: flex;
+    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    row-gap: 20px;
+}
+button{
+    background-color:#333333 ;
+    color: white;
+    padding: 21px 29px;
+    border: none;
+    border-radius: 35px;
+    font-weight: bold;
+    font-size: 26px;
+}
+.oparationButton{
+    background-color: #FEA00A;
+}
+.clearButton{
+    font-weight: normal;
+}
+p{
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.speacialPad{
+    padding: 21px 32px;
+}

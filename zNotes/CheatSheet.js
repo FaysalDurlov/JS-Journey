@@ -82,3 +82,6 @@ htmlTag.classList.add('className')
 htmlTag.classList.remove('className')
 // with this we can remove a class from the htmlTag atribute
 // Here no need dot for class name like document Query
+
+htmlTag.classList.contains('className')
+// retruns bool value if that html tag contains a the mentioned class name or not

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10 Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="Ex_10ab">
+        <div>
+            <p>Amazon Button Shoping Button</p>
+            <button class="AmazonButton">Add to Cart</button>
+        </div>
+        <div>
+            <p>Uber Book A Car Button</p>
+            <button class="UberRequestButton">Request now</button>
+            <button class="UberScheduleButton">Schedule for later</button>
+        </div>
+        <div class="Ex_10c">
+            <button class="TextButton js_button" onclick="
+                text();
+                ">Text</button>
+        </div>
+    </div>
+    <hr>
+    <div class="Ex_10defg">
+        <p>Simple ON/OFF Buttons </p>
+        <div class="toggleButtons">
+            <button class="NotToggle Gaming" onclick="
+                toggle('Gaming','Music','Tech');
+                ">Gaming</button>
+            <button class="NotToggle Music" onclick="
+                toggle('Music','Gaming','Tech');
+                ">Music</button>
+            <button class="NotToggle Tech" onclick="
+                toggle('Tech','Music','Gaming');
+                ">Tech</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

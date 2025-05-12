@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <p>YouTube Subscribe Button</p>
+        <button class="SubscribeButton" onclick="
+            subscribe();
+        ">Subscribe</button>
+    </div>
+    <div>
+        <p>Amazon Shiping Calculator</p>
+        <p>Orders Under $40 = +$10 shiping.</p>
+        <p>Orders over $40 = FREE shiping.</p>
+        <input placeholder="Cost of Order" class="js_input_price" onkeydown="
+            eventhandleCost(event);
+        ">
+        <button class="CalculateButton" onclick="
+            calculate();
+        ">Calculate</button>
+    </div>
+    <p class="final_price"></p>
+
+    <p><a href="RockPaperScissor_CSS\rockPaperScissors.html">Click here</a> Rock Paper Scissors Project</p>
+    <script src="index.js"></script>
+</body>
+</html>
