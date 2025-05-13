@@ -85,3 +85,21 @@ htmlTag.classList.remove('className')
 
 htmlTag.classList.contains('className')
 // retruns bool value if that html tag contains a the mentioned class name or not
+
+//Array
+array.length //gives the lenght of the array. array has the property of length cz
+            // is a obejct
+array.isArray([1,2,3]) // return true bcz [1,2,3] is a valid array for other its false
+array.push(100) //appends 100
+array.splice(0,2) // it will remove item from index 0. and it will happen 2 times
+// we can add item and replace item and remove item using this splice()
+
+//LOOPs
+let i = 1
+while(i<=5){  // if we create a variable in loop it will be created Locally
+    i++        // no acsess from outside
+}
+
+for (let i=1; i<=5;i++ ){
+    //code
+}
