@@ -2,14 +2,7 @@ let variable = 1 < 0.5 ? 'heads' : 'tails';
 //                        TRUE      False
 // if else shorthand
 
-const jsonObject = {
-    "name": "Toyota",    //using JSON Syntax
-    "color": "Red",      //no methods can be here in Json and it can be read by other languages like (c,c++,Java, etc)
-    "rating": {          //Use Json so that my data can be read in 2 different languages or may be more
-        "stars": 5,      // use json to store data in file or database so later other languages can read it from there
-        "count": 87      //
-    }
-}
+
 const NONjsonObject = {
     name: 'Toyota',
     color: 'Red',
@@ -21,6 +14,50 @@ const NONjsonObject = {
         count: 87
     }
 }
+const jsonObject = {
+    "name": "Toyota",    //using JSON Syntax
+    "color": "Red",      //no methods can be here in Json and it can be read by other languages like (c,c++,Java, etc)
+    "rating": {          //Use Json so that my data can be read in 2 different languages or may be more
+        "stars": 5,      // use json to store data in file or database so later other languages can read it from there
+        "count": 87      //
+    }
+}
+
+object = {
+    name: 'shirt', //property
+    price: 799,
+    method: function func(){     //methods 2 ways of writing both works same
+        console.log('method_1');
+    },
+    method2(){
+        console.log('method2')
+    }
+}
+
+//Read from Object
+ObjectName.notExitssProperty ////this will show undefine.
+NewPropertyName in ObjectName  /// this will show false if NewPropertyName is not in the object
+ObjectName.keyName
+ObjectName['keyName'] // if its exits it will retrun the value or else it will show Undefined
+ObjectName[keyName]   // in this way we can get the key value of a property from a object
+
+const { name, price } = object;
+/*shortcut of   --> const name = object.name
+                    const price = object.price
+this is called destructuring
+takes name and price property from object and puts the value in name variable
+*/
+
+
+//Write or Modify in Obejct
+ObjectName.NewPropertyName = 'and its Value';
+// if NewPropertyName is not in the object then this line will add it with the value
+delete object.propertyName;
+// this will remove the property from the  object.
+
+
+
+
 JSON.stringify(NONjsonObject);
 // this just converted the non json object to json object string format
 
@@ -36,23 +73,7 @@ localStorage.getItem('key_name');
 localStorage.removeItem('key_name');
 // remove the object from under that key from local storage
 
-object = {
-    name: 'shirt', //property
-    price: 799,
-    method: function func(){     //methods 2 ways of writing both works same
-        console.log('method_1');
-    },
-    method2(){
-        console.log('method2')
-    }
-}
 
-const { name, price } = object;
-/*shortcut of   --> const name = object.name
-                    const price = object.price
-this is called destructuring
-takes name and price property from object and puts the value in name variable
-*/
 
 document.querySelector('htmlTag')
 // with this we can get any html tag we want in Js like button,div,p etc. 
