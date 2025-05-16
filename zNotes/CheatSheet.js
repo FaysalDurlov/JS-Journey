@@ -23,7 +23,7 @@ const jsonObject = {
     }
 }
 
-object = {
+object = {   // this is also a non json object
     name: 'shirt', //property
     price: 799,
     method: function func(){     //methods 2 ways of writing both works same
