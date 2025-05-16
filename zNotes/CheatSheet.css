@@ -1,0 +1,11 @@
+div{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+        /* Heres the first column element will have 200px width 2nd will be 150px 3rd will be 100px */
+    column-gap: 10px; 
+    /* adds 10px of gaps betweens each columns */
+    row-gap: 10px;
+        /* adds 10px of gaps betweens each row */
+
+
+}

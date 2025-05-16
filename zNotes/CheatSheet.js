@@ -55,6 +55,13 @@ ObjectName.NewPropertyName = 'and its Value';
 delete object.propertyName;
 // this will remove the property from the  object.
 
+protertyName_1 = 23;
+propertyName_2 = 24;
+let object = {protertyName_1, // shortHand of  propertyName_1:  propertyName_1
+    propertyName_2};          // only if variable and key names are same.
+
+
+
 
 
 
@@ -114,13 +121,20 @@ array.isArray([1,2,3]) // return true bcz [1,2,3] is a valid array for other its
 array.push(100) //appends 100
 array.splice(0,2) // it will remove item from index 0. and it will happen 2 times
 // we can add item and replace item and remove item using this splice()
+array2 = array.splice() // this copies the array to array2. 
+//Now if edit array2 it won't effect the original array.
+
 
 //LOOPs
 let i = 1
 while(i<=5){  // if we create a variable in loop it will be created Locally
+
+    continue; // this skipes 1 iteration. it won't check the rest of the loop but will restart it.
+    // so remember to increament i
+
     i++        // no acsess from outside
 }
-
 for (let i=1; i<=5;i++ ){
+    break; // breaks a loop
     //code
 }
