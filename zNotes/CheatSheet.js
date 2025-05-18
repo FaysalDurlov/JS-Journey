@@ -3,6 +3,9 @@ let variable = 1 < 0.5 ? 'heads' : 'tails';
 // if else shorthand
 
 
+
+/*============================= Objects ==============================================================================================================================================================*/
+
 const NONjsonObject = {
     name: 'Toyota',
     color: 'Red',
@@ -48,7 +51,6 @@ this is called destructuring
 takes name and price property from object and puts the value in name variable
 */
 
-
 //Write or Modify in Obejct
 ObjectName.NewPropertyName = 'and its Value';
 // if NewPropertyName is not in the object then this line will add it with the value
@@ -62,25 +64,22 @@ let object = {protertyName_1, // shortHand of  propertyName_1:  propertyName_1
 
 
 
-
-
+/*========================= Local Storage ==============================================================================================================================================================*/
 
 JSON.stringify(NONjsonObject);
 // this just converted the non json object to json object string format
-
 JSON.parse(converted_non_Json_object);
 // this can convert the non Json object-string to json object not string
-
 localStorage.setItem('key_name', 'valueInString');
 // set value in Local storage using a key
-
 localStorage.getItem('key_name');
 //read value from that key from the local storage
-
 localStorage.removeItem('key_name');
 // remove the object from under that key from local storage
 
 
+
+/*============================= DOM (Document Model Object) ============================================================================================================================================*/
 
 document.querySelector('htmlTag')
 // with this we can get any html tag we want in Js like button,div,p etc. 
@@ -88,20 +87,27 @@ document.querySelector('htmlTag')
 document.querySelector('.className')
 // with these we can't manupulate the conent but we can just get them (like read only) 
 // same goes for .innerText
-
-
 document.querySelector('htmlTag').innerHTML
 // with this we can manupulate the content of "htmlTag"
-
-
 document.body.innerHTML
 // this innerHTML gives the html tag that is under body. if I put div then it returns html inside div
 document.body.innerText
 // retruns the text inside of the tag. why use this innerhtml return spaces but innerTxt doesn't
-
 document.querySelector('input').value 
 // returns a input. We can't use innerHTML bcz input does't have closing tag
 
+
+window.document 
+window.document.title
+window.console.log('Hello')
+window.alert
+// we always type document without window object why? js automaic add this in behind
+// under window we have document, console, elements, alert applicaton(localStorage) like everything it like Mother of all object
+//  under thid window we have document under document we have html etc like this
+
+
+
+/*========================== Html class Modify With JS ================================================================================================================================================*/
 
 // can use in css after any action/event design 
 htmlTag.classList.add('className')
@@ -114,7 +120,10 @@ htmlTag.classList.remove('className')
 htmlTag.classList.contains('className')
 // retruns bool value if that html tag contains a the mentioned class name or not
 
-//Array
+
+
+/*============================= Array =================================================================================================================================================================*/
+
 array.length //gives the lenght of the array. array has the property of length cz
             // is a obejct
 array.isArray([1,2,3]) // return true bcz [1,2,3] is a valid array for other its false
@@ -124,8 +133,21 @@ array.splice(0,2) // it will remove item from index 0. and it will happen 2 time
 array2 = array.splice() // this copies the array to array2. 
 //Now if edit array2 it won't effect the original array.
 
+array.forEach(function(value,index){ // here the first paramter will return element in array and 2nd parameter will retrun index of the element
+    console.log(index,value)
+})                                //works like loop it will print each element of the array
 
-//LOOPs
+arrayTodoWork = ['make Food','Wash Dishes','Watch Football','Do coding']
+arrayTodoWork.forEach(function(first_i_elements,second_i_index){
+    if(first_i_elements==='Wash Dishes'){
+        return; //==================================================================== this do same like continue in  Loops
+    }
+    console.log(`Index = ${first_i_elements} | Element = ${second_i_index}`);
+});
+
+
+/*============================= Loops ==================================================================================================================================================================*/
+
 let i = 1
 while(i<=5){  // if we create a variable in loop it will be created Locally
 
@@ -138,3 +160,67 @@ for (let i=1; i<=5;i++ ){
     break; // breaks a loop
     //code
 }
+
+
+
+/*============================= Funtions ================================================================================================================================================================*/
+
+// remember funtion is a value. so anything we can use with value like int,float,array, bool
+// we can use fnc similer way
+NONjsonObject.fun()
+// a funtion from object. Object Name NONjsonObject.
+// this is a method of a  NoNjsonObject 
+
+const FncVariable = function doSomething1(){
+    console.log('1');      // has dependency 
+}
+
+const FncVariable2 = function (){
+    console.log('1');      // has dependency 
+}                          // is is a anonymous Function
+FncVariable2();
+FncVariable();
+// these all can be use but after declaration they don't support hoisting
+
+doSomething1(); /// cant use it like this
+
+
+
+//Default funtion
+function doSomething2(){
+    console.log('1');      // has no dependency 
+}
+
+
+// dependency??? it means funtion needs to be declared first then can be used.
+// like option 1 we can't use like  doSomething()  or    FncVariable()  before the Funtion has been created/declared
+// in option 3 we don't need anything we can use funtion as we want
+// this kind of non dependency is called    Hoisting so option 1 don't have hoisting but option 3 has
+
+
+function run(parameter){
+    parameter();
+}
+run(function(){
+    console.log('Here we have passed a function into another funtion');
+}); 
+// here the funtion that we can giving as an argument is called  "CALLBACK"
+// remember fnc is a vlaue
+
+setTimeout(doSomething2,3000);  //Takes 2 parameters  first parameter is the work we want to do
+                                // 2nd parameter is in milisecond after we want to do the work that is on first parameter
+// this will happen just one single time and will stop after that
+
+
+
+let set_IntervalId = setInterval(callbackFunction, delayInMilliseconds)  // here the setInterval works like setTimeout but interval works repeatedly.
+clearInterval(set_IntervalId)  // to stop that repeatition we can get the id that setInterval returns ans use it to stop
+
+/* Asynchronous Code :  means the computer won't wait for setTimeout to finish. But it will do the other codes/works then when 3 sec is over (in this case)
+                        Thi setTimeout() will be executed (both setInterval,setTimeout is Asynchronous Code example)
+    
+    Synchronous Code :  means computer will execute code line by line. It will wait for a line to finish then will go to next
+*/
+
+
+

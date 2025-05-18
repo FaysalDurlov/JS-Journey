@@ -11,3 +11,5 @@ let a = JSON.stringify(arrayObject)
 console.log(a);
 console.log(JSON.parse(a));
 console.log(localStorage.getItem('a'));
+
+console.log(!false);
