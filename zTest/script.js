@@ -12,4 +12,13 @@ console.log(a);
 console.log(JSON.parse(a));
 console.log(localStorage.getItem('a'));
 
-console.log(!false);
+console.log('Test');
+let variabl1 = 0;
+let variabl2 = false;
+console.log(variabl1===variabl2);
+
+let objectA = {}
+let objectB = {name:"hanzo"}
+console.log(objectB)
+objectA["[object Object"] = {name: "hango"}
+console.log(objectA["[object Object"]);

@@ -32,7 +32,7 @@ object = {   // this is also a non json object
     method: function func(){     //methods 2 ways of writing both works same
         console.log('method_1');
     },
-    method2(){
+    method2(){                    // short-hand method
         console.log('method2')
     }
 }
@@ -122,6 +122,10 @@ htmlTag.classList.contains('className')
 
 
 
+
+
+
+
 /*============================= Array =================================================================================================================================================================*/
 
 array.length //gives the lenght of the array. array has the property of length cz
@@ -140,7 +144,7 @@ array.forEach(function(value,index){ // here the first paramter will return elem
 arrayTodoWork = ['make Food','Wash Dishes','Watch Football','Do coding']
 arrayTodoWork.forEach(function(first_i_elements,second_i_index){
     if(first_i_elements==='Wash Dishes'){
-        return; //==================================================================== this do same like continue in  Loops
+        return; //====================================================== this do same like continue in  Loops
     }
     console.log(`Index = ${first_i_elements} | Element = ${second_i_index}`);
 });
@@ -224,3 +228,67 @@ clearInterval(set_IntervalId)  // to stop that repeatition we can get the id tha
 
 
 
+/*============================= Arrow Funtions ================================================================================================================================================================*/
+
+const arrowFunction = (parameter1,parameter2)=>{
+    console.log('Hello');
+};
+arrowFunction(2,3);
+
+const oneParamFNC = parameter1 =>{
+    console.log(parameter1);
+}
+oneParamFNC(2);
+
+const oneLineFNC = ()=> 'will retrun this str or the calculation if there Any' ;
+console.log(oneLineFNC());
+
+// when to use?  try to use when we are passing a funtion to another so use arrow fnc as callback
+// Arrow Funtion Don't support Hoisting
+
+const ObjectDemo = {
+    method_1: function(){
+        console.log('Method 1');
+    },
+    method_2(){
+        console.log('Method 2');
+    },
+    method_3: ()=>{
+        console.log('Method 3');
+    }
+}
+ObjectDemo.method_1();
+ObjectDemo.method_2();
+ObjectDemo.method_3();
+
+
+
+/*============================= Event Listener ================================================================================================================================================================*/
+
+const doThis = ()=>{
+    console.log('Doing This');
+}
+function doThat(){
+    console.log('Doing That');
+}
+
+
+const buttonElement = document.querySelector('.ButtonClassName')
+// we ware using  ======= onclick   ==>>>>   on  + "click"  
+
+buttonElement.addEventListener('click',doThis);   // so after every ON  we can use that 
+// in here its onclick.
+// same for onkeydown  so we will use keydown as an argument in event listener
+
+buttonElement.removeEventListener('click',doThis);  // this will remove the event listener.
+// Notice doThis is variable funtion. so we need the exact funtion.
+
+/* why we dont use 
+    buttonElement.addEventListener('click',doThat());
+
+    because doThat() function doesn't return any thing so it will undifined and eventListener use undifined
+    so its a error
+*/
+buttonElement.addEventListener('click',()=>{
+    doThat();                                   // we can use doThat like this 
+});
