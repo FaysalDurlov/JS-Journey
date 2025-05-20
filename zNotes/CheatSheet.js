@@ -97,6 +97,18 @@ document.querySelector('input').value
 // returns a input. We can't use innerHTML bcz input does't have closing tag
 
 
+document.querySelectorAll('.className');
+// this will select all the htmltags that has this same class name. unlike just querySelector that will select the only last html that has this class name
+
+console.log(document.querySelectorAll('.className'));  // this will return a array like object named Nodelist   key = index  ;  value = html class names
+
+
+
+
+
+
+
+
 window.document 
 window.document.title
 window.console.log('Hello')
@@ -272,6 +284,9 @@ function doThat(){
     console.log('Doing That');
 }
 
+document.querySelector('.ButtonClassName').addEventListener('click',doThis);
+// we can add event listener like this or we can use variable like bellow
+
 
 const buttonElement = document.querySelector('.ButtonClassName')
 // we ware using  ======= onclick   ==>>>>   on  + "click"  
@@ -292,3 +307,8 @@ buttonElement.removeEventListener('click',doThis);  // this will remove the even
 buttonElement.addEventListener('click',()=>{
     doThat();                                   // we can use doThat like this 
 });
+document.body.addEventListener('keydown',(event)=>{ // here we can get the event object also
+    console.log(event.key)   // this will retrun which button has been pressed
+});                          // check html Notes
+
+// For Dynamics. Let say Todo Delete Button we have to set html first then we can set addeventlistener

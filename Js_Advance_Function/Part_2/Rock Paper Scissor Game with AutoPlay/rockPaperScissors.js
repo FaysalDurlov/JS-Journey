@@ -35,7 +35,31 @@ function AutoPlay(){
     }
 }
 
-
+document.querySelector('.js_rockButton').addEventListener('click',()=>{
+    playGame('Rock');
+});
+document.querySelector('.js_paperButton').addEventListener('click',()=>{
+    playGame('Paper');
+});
+document.querySelector('.js_scissorsButton').addEventListener('click',()=>{
+    playGame('Scissors');
+});
+document.querySelector('.js_resetButton').addEventListener('click',()=>{
+    resetScore();
+});
+document.querySelector('.js_AutoPlayButton').addEventListener('click',()=>{
+    AutoPlay();
+});
+document.body.addEventListener('keydown',(event)=>{
+    console.log(event.key);
+    if(event.key ==='r'){
+        playGame('Rock');
+    }else if(event.key ==='p'){
+        playGame('Paper');
+    }else if(event.key ==='s'){
+        playGame('Scissors');
+    }
+});
 
 
 

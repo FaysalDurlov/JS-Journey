@@ -7,6 +7,9 @@ if(storage === null){
     storage = JSON.parse(storage);
     LoadTodoList();
 }
+document.querySelector('.js_addButton').addEventListener('click',()=>{
+    AddTodo();
+});
 
 function AddTodo(){
 
@@ -35,7 +38,13 @@ function LoadTodoList(){
             storage.TodoDate.splice(${i},1);
             localStorage.setItem('Info',JSON.stringify(storage));
             LoadTodoList();
-        " Class="DeleteButton">Delete</button>`;
+        " Class="DeleteButton js_deleteTodoButton">Delete</button>`;
     }
     document.querySelector('.OutputHtml').innerHTML = html;
+    document.querySelectorAll('.js_deleteTodoButton').forEach((value,index)=>{
+        value.addEventListener('click',()=>{
+            
+        });
+    });
+
 }
