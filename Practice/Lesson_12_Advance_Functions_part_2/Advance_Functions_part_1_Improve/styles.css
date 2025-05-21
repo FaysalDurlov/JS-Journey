@@ -1,0 +1,22 @@
+body{
+    font-family: Arial;
+}
+.StartButton,.AddToCartButton{
+    background-color:rgb(233, 224, 224);
+    color: black;
+    padding: 10px 20px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+.afterStartButton{
+    background-color: black;
+    color: white;
+}
+.AddToCartDiv{
+    margin-top: 10px;
+}
+.AddToCartOutput{
+    font-size: large;
+    font-weight: bold;
+}

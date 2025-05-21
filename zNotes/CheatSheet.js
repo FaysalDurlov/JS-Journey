@@ -105,10 +105,6 @@ console.log(document.querySelectorAll('.className'));  // this will return a arr
 
 
 
-
-
-
-
 window.document 
 window.document.title
 window.console.log('Hello')
@@ -146,7 +142,7 @@ array.isArray([1,2,3]) // return true bcz [1,2,3] is a valid array for other its
 array.push(100) //appends 100
 array.splice(0,2) // it will remove item from index 0. and it will happen 2 times
 // we can add item and replace item and remove item using this splice()
-array2 = array.splice() // this copies the array to array2. 
+array2 = array.slice() // this copies the array to array2. 
 //Now if edit array2 it won't effect the original array.
 
 array.forEach(function(value,index){ // here the first paramter will return element in array and 2nd parameter will retrun index of the element
@@ -240,6 +236,22 @@ clearInterval(set_IntervalId)  // to stop that repeatition we can get the id tha
 
 
 
+let copyArrayOfFilterMethod = [1,-3,5].filter((value,index)=>{
+    return true;   // filter method will keep a track of previous return. after the array ends it will return a copy of Array
+});                 // if previous return is true it will go for a iteration and add the item to copy array
+                    // if false it will skip the next iteration and doesn't add the item to copy array. similer like continue when false
+// for this code the output will be [1,-3,5]
+console.log(copyArrayOfFilterMethod);
+// example practice-12-part2
+
+
+let copyArrayOfMapMethod= [1,2,3].map((value,index)=>{
+    return 10;                // this will keep a track od the last returned item adn save it to copy array.
+});                           // after all iteration it will return the copy of the array.
+console.log(copyArrayOfMapMethod);
+// example practice-12-part2
+
+
 /*============================= Arrow Funtions ================================================================================================================================================================*/
 
 const arrowFunction = (parameter1,parameter2)=>{
@@ -247,13 +259,17 @@ const arrowFunction = (parameter1,parameter2)=>{
 };
 arrowFunction(2,3);
 
+
+// One parameter Function
 const oneParamFNC = parameter1 =>{
     console.log(parameter1);
 }
 oneParamFNC(2);
 
-const oneLineFNC = ()=> 'will retrun this str or the calculation if there Any' ;
-console.log(oneLineFNC());
+
+//One Line Funtion
+const oneLineFNC = (a,b)=> a*b ;  // this will auto return the a*b value  its one line funtion
+console.log(oneLineFNC(2,3));
 
 // when to use?  try to use when we are passing a funtion to another so use arrow fnc as callback
 // Arrow Funtion Don't support Hoisting

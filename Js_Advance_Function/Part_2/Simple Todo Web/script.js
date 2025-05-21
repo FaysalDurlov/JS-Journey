@@ -33,12 +33,16 @@ function LoadTodoList(){
         html+=`
         <div>${TodoName}</div> 
         <div>${TodoDate}</div>
-        <button onclick="
-            storage.TodoName.splice(${i},1);
-            storage.TodoDate.splice(${i},1);
-            localStorage.setItem('Info',JSON.stringify(storage));
-            LoadTodoList();
-        " Class="DeleteButton js_deleteTodoButton">Delete</button>`;
+        <button Class="DeleteButton js_deleteTodoButton">Delete</button>`;
     }
     document.querySelector('.OutputHtml').innerHTML = html;
+    document.querySelectorAll('.js_deleteTodoButton').forEach((value,index)=>{
+        value.addEventListener('click',()=>{
+            storage.TodoName.splice(index,1);
+            storage.TodoDate.splice(index,1);
+            localStorage.setItem('Info',JSON.stringify(storage));
+            LoadTodoList();
+        });
+    });
+
 }

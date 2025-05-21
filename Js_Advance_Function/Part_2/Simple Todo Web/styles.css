@@ -1,0 +1,37 @@
+body{
+    font-family: Arial;
+}
+.TodoList{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+
+}
+.TodoListInputTodoName, .TodoListInputDate{
+    padding: 6px;
+    font-size: 15px;
+}
+.TodoListAddButton{
+    border: none;
+    padding: 10px 37px;
+    font-size: 15px;
+    background-color: #016D00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.OutputHtml{
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+.DeleteButton{
+    border: none;
+    background-color: darkred;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 10px 0px;
+}
