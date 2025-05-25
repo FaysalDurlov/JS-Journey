@@ -97,12 +97,10 @@ document.querySelector('input').value
 // returns a input. We can't use innerHTML bcz input does't have closing tag
 
 
-document.querySelectorAll('.className');
+document.querySelectorAll('.className');  // returns the list of all the elements that has .className atttribute
 // this will select all the htmltags that has this same class name. unlike just querySelector that will select the only last html that has this class name
 
 console.log(document.querySelectorAll('.className'));  // this will return a array like object named Nodelist   key = index  ;  value = html class names
-
-
 
 
 window.document 
@@ -129,8 +127,9 @@ htmlTag.classList.contains('className')
 // retruns bool value if that html tag contains a the mentioned class name or not
 
 
-
-
+htmlTag.dataset  // if there is any  data attribute has been used in html  like   data-name1-name2-name3 = "value" 
+// this will return a object with property of { name1Name2Name3: : "value" }  later we can use this to access that value using
+html.dataset.Name1Name2Name3;
 
 
 

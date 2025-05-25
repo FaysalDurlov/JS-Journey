@@ -22,3 +22,7 @@ let objectB = {name:"hanzo"}
 console.log(objectB)
 objectA["[object Object"] = {name: "hango"}
 console.log(objectA["[object Object"]);
+
+
+console.log(document.querySelectorAll('.check'));
+console.log(document.querySelector('.check2'));
