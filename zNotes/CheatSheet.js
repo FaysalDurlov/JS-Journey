@@ -97,6 +97,19 @@ document.querySelector('input').value
 // returns a input. We can't use innerHTML bcz input does't have closing tag
 
 
+/*
+<select class="selectorClassName">
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+</select>
+
+*/
+document.querySelector(`.selectorClassName_${productId}`).value // if we have a Selector and we have a some value so we can get that value like this
+
+
+
 document.querySelectorAll('.className');  // returns the list of all the elements that has .className atttribute
 // this will select all the htmltags that has this same class name. unlike just querySelector that will select the only last html that has this class name
 
@@ -115,6 +128,7 @@ window.alert
 
 /*========================== Html class Modify With JS ================================================================================================================================================*/
 
+
 // can use in css after any action/event design 
 htmlTag.classList.add('className')
 // with this we can add a new class in that htmlTag atribute
@@ -130,6 +144,12 @@ htmlTag.classList.contains('className')
 htmlTag.dataset  // if there is any  data attribute has been used in html  like   data-name1-name2-name3 = "value" 
 // this will return a object with property of { name1Name2Name3: : "value" }  later we can use this to access that value using
 html.dataset.Name1Name2Name3;
+
+
+const productId = button.dataset.productId;
+const {productId} = button.dataset;         // this this the shorthand of this ^^
+// Both Are same Line
+
 
 
 
@@ -341,3 +361,41 @@ function Car(comapany, model,year,color){
 let car1 = new Car('Toyota','Supra-450',2018,'Black');
 console.log(car1.comapany);
 console.log(car1);
+
+
+/*============================= Module  ================================================================================================================================================================*/
+
+/* 3 steps  
+
+ 1. add type="module" attribute   so this file can import from other files
+ 
+        this type will be in html script element of that file from here will be acessing from another file.
+       { in short in which js file we will type import that file }
+
+ 2. Export   
+ 3. Import   import {cart} from '../data/cart.js';
+
+
+*/
+//Import   
+import {variableFromOtherFolder} from '../data/cart.js'; // import must be on top of the file to work
+// here [ .. ] means one step back from current folder
+
+import {variableFromOtherFolder as A_variableName} from '../data/cart.js';
+//This As will rename the varibale name to another while importing
+
+import {variable_1 , variable_2, NameOfFunction} from '../data/cart.js'; 
+// this way we can get 2 varibale or even a funtion
+
+import * as aVariableName from '../data/cart.js';
+// this way we can get all the elements from the cart.js file as a object.
+// this * will group all the elements in aVariableName as a object then we can acess it
+
+aVariableName.property_1;
+aVariableName.FNC();  // then we can use codes from othe file like this
+
+
+//Export   
+export variableFromOtherFolder; // this line will be in source folder;
+
+// this way the program will only work in live server
