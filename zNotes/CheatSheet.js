@@ -81,13 +81,13 @@ localStorage.removeItem('key_name');
 
 /*============================= DOM (Document Model Object) ============================================================================================================================================*/
 
-document.querySelector('htmlTag')
+document.querySelector('.className')
 // with this we can get any html tag we want in Js like button,div,p etc. 
 //but if same tag 2 or more time we need class. same goes for ID
 document.querySelector('.className')
 // with these we can't manupulate the conent but we can just get them (like read only) 
 // same goes for .innerText
-document.querySelector('htmlTag').innerHTML
+document.querySelector('.className').innerHTML
 // with this we can manupulate the content of "htmlTag"
 document.body.innerHTML
 // this innerHTML gives the html tag that is under body. if I put div then it returns html inside div
@@ -95,6 +95,11 @@ document.body.innerText
 // retruns the text inside of the tag. why use this innerhtml return spaces but innerTxt doesn't
 document.querySelector('input').value 
 // returns a input. We can't use innerHTML bcz input does't have closing tag
+
+document.querySelector('.className').remove(); 
+// this will remove that htmltag that has this class name
+
+
 
 
 /*
@@ -380,6 +385,11 @@ console.log(car1);
 //Import   
 import {variableFromOtherFolder} from '../data/cart.js'; // import must be on top of the file to work
 // here [ .. ] means one step back from current folder
+
+
+// And let say we have a file on same folder we have to use a single dot
+//   like    ./file_1/file_2
+
 
 import {variableFromOtherFolder as A_variableName} from '../data/cart.js';
 //This As will rename the varibale name to another while importing
