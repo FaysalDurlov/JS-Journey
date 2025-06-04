@@ -2,6 +2,13 @@ let variable = 1 < 0.5 ? 'heads' : 'tails';
 //                        TRUE      False
 // if else shorthand
 
+/*============================= Math methods ==============================================================================================================================================================*/
+
+let matRound = (Math.round(6.005)/100).toFixed(2) // will return 6.01
+
+
+
+
 
 
 /*============================= Objects ==============================================================================================================================================================*/
@@ -154,7 +161,7 @@ html.dataset.Name1Name2Name3;
 const productId = button.dataset.productId;
 const {productId} = button.dataset;         // this this the shorthand of this ^^
 // Both Are same Line
-
+// Remember Dataset is an Object is this we have the property of productId in this case
 
 
 
@@ -350,8 +357,18 @@ buttonElement.addEventListener('click',()=>{
 document.body.addEventListener('keydown',(event)=>{ // here we can get the event object also
     console.log(event.key)   // this will retrun which button has been pressed
 });                          // check html Notes
-
 // For Dynamics. Let say Todo Delete Button we have to set html first then we can set addeventlistener
+
+
+
+const inputField = document.querySelector(`.js_input_new_quantity_${cartItemId}`);
+  inputField.addEventListener('keydown',(event)=>{
+    if(event.key === 'Enter'){
+      saveOperation();
+    }
+});
+// this is for to get a event from Input and press "Enter" to sumbmit the input with keydown event
+
 
 
 /*============================= Class Create ================================================================================================================================================================*/
@@ -379,17 +396,19 @@ console.log(car1);
 
  2. Export   
  3. Import   import {cart} from '../data/cart.js';
-
-
 */
+
+
+//=========== Named Export ==========
+
 //Import   
 import {variableFromOtherFolder} from '../data/cart.js'; // import must be on top of the file to work
-// here [ .. ] means one step back from current folder
+// here [ ../ ] means one step back from current Folder
+// [ ../../ ] means 2 step back from the current Folder
 
-
-// And let say we have a file on same folder we have to use a single dot
-//   like    ./file_1/file_2
-
+/*    And let say we have a file on same folder we have to use a single dot
+          like    ./file_1/file_2
+*/
 
 import {variableFromOtherFolder as A_variableName} from '../data/cart.js';
 //This As will rename the varibale name to another while importing
@@ -404,8 +423,45 @@ import * as aVariableName from '../data/cart.js';
 aVariableName.property_1;
 aVariableName.FNC();  // then we can use codes from othe file like this
 
-
 //Export   
 export variableFromOtherFolder; // this line will be in source folder;
 
 // this way the program will only work in live server
+
+
+
+//=========== Default Export ==========
+
+import aThing from 'a_file_or_a_link_esm' // import without any brackets
+export default aThing; //Export a thing from a js file
+
+// Warning This default Export Can be Used Just one single time for a js file only.
+// can't use export default multiple time in the same js file.
+
+// Tip --->  if we want to default export multiple things we can create a object that will have many things. Then we will export that
+
+
+
+
+
+/*============================= ExternalLibrary  ================================================================================================================================================================*/
+
+// DayJs  famous for date type uses
+// we can add library same as we add js file in html file. using <script src = "library_Chrome_Link" ></script>
+
+import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+hello()  // in the external library its code is console.log("helo") so it will print hello
+
+/*  chekc DayJS chrome file. see how the js code is has been compressed. so that it can load fast.
+    this is called minification 
+*/
+
+const today = dayjs();
+const deliveryDate = today.add(7,'days'); // add 7 days with todays day 
+console.log(deliveryDate.format('dddd, MMMM D'));   // Sunday, June 9
+
+/*
+    There are ESM version and normal External Liberery ESM means there is a exported Funtion Already
+    and Normal External Librery Means no External
+    here DayJS has Exported version
+*/
