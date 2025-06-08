@@ -390,6 +390,7 @@ console.log(car1);
 /* 3 steps  
 
  1. add type="module" attribute   so this file can import from other files
+        == And this will be called Entry Point
  
         this type will be in html script element of that file from here will be acessing from another file.
        { in short in which js file we will type import that file }
@@ -456,9 +457,11 @@ hello()  // in the external library its code is console.log("helo") so it will p
     this is called minification 
 */
 
+// remeber dayjs_ESM_Version_has a default Export
 const today = dayjs();
 const deliveryDate = today.add(7,'days'); // add 7 days with todays day 
 console.log(deliveryDate.format('dddd, MMMM D'));   // Sunday, June 9
+
 
 /*
     There are ESM version and normal External Liberery ESM means there is a exported Funtion Already
