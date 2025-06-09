@@ -214,8 +214,10 @@ NONjsonObject.fun()
 // a funtion from object. Object Name NONjsonObject.
 // this is a method of a  NoNjsonObject 
 
+
+//option_1
 const FncVariable = function doSomething1(){
-    console.log('1');      // has dependency 
+    console.log('1');      // has dependency (Explained below)
 }
 
 const FncVariable2 = function (){
@@ -277,7 +279,7 @@ console.log(copyArrayOfFilterMethod);
 
 
 let copyArrayOfMapMethod= [1,2,3].map((value,index)=>{
-    return 10;                // this will keep a track od the last returned item adn save it to copy array.
+    return 10;                // this will keep a track od the last returned item and save it to copy array.
 });                           // after all iteration it will return the copy of the array.
 console.log(copyArrayOfMapMethod);
 // example practice-12-part2
@@ -433,14 +435,27 @@ export variableFromOtherFolder; // this line will be in source folder;
 
 //=========== Default Export ==========
 
-import aThing from 'a_file_or_a_link_esm' // import without any brackets
 export default aThing; //Export a thing from a js file
+
+import aThing from 'a_file_or_a_link_esm' // import without any brackets (This is called Default Import)
 
 // Warning This default Export Can be Used Just one single time for a js file only.
 // can't use export default multiple time in the same js file.
 
-// Tip --->  if we want to default export multiple things we can create a object that will have many things. Then we will export that
+/* Here aThing may be a fnc or varibale any other data type. but as default must be used once. 
+    so When we import we use any name to import aThing. for example
+    we can write:
 
+    import heloWorld from 'a_file_or_a_link_esm;'
+
+    this will automaticly import aThing and its name will be changed to heloWorld.
+    then we can use heloWold same aThing cz its just changed its name thats it
+*/
+
+
+
+
+// Tip --->  if we want to default export multiple things we can create a object that will have many things. Then we will export that
 
 
 
@@ -461,7 +476,6 @@ hello()  // in the external library its code is console.log("helo") so it will p
 const today = dayjs();
 const deliveryDate = today.add(7,'days'); // add 7 days with todays day 
 console.log(deliveryDate.format('dddd, MMMM D'));   // Sunday, June 9
-
 
 /*
     There are ESM version and normal External Liberery ESM means there is a exported Funtion Already
