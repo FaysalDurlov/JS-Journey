@@ -482,3 +482,35 @@ console.log(deliveryDate.format('dddd, MMMM D'));   // Sunday, June 9
     and Normal External Librery Means no External
     here DayJS has Exported version
 */
+
+
+
+/*============================= Testing FrameWork  (Jasmine)  ================================================================================================================================================================*/
+
+// in jasmine Spec means test
+
+describe('test Suite: FormatCurrency',()=>{ // this creates a Test suite (More like Heading of a paragraph)
+    it('Converts Cents into Dollars', ()=>{  // these "it" means indivisual tests
+        expect(formatCurrency(2095)).toEqual('20.95');  // here the expect funtion resturns an Object. then we are checking is it equal to our desired ans? 
+    });                                                 // more like if else 
+    it('Woks with 0',()=>{
+        expect(formatCurrency(0)).toEqual('0.00');    // expect the fnc to give 0.00
+    });
+    it('rounds up to nearest cent',()=>{
+        expect(formatCurrency(2000.5)).toEqual('20.01')   // expect the fnc to give 20.01
+    });
+});
+
+/*   the output will be like this formate
+       test Suite: FormatCurrency
+         .Converts Cents into Dollars
+         .Woks with 0
+         .rounds up to nearest cent
+
+*/
+// we can have nested Describe in jasmine
+describe('First Test Suite',()=>{
+    describe('Second Test Suite Under the First',()=>{
+        // tests
+    });
+});
