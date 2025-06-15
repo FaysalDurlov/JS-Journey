@@ -514,3 +514,20 @@ describe('First Test Suite',()=>{
         // tests
     });
 });
+
+//=========== MOCK (Jasmine)  ==========
+
+//------ SpyOn can Fake a Value
+// Mock Means replease method with fake version
+spyOn(localStorage, 'getItem') // Here we are faking  "getItem" method which is a method of Object "localStorage" 
+                                // so we are mocking localStorage getItem method
+// spyOn returns a Object
+spyOn(localStorage,"getItem").and.callFake(()=>{  // Here "spyOn(---).and" also retruns a object. here and has a method callFake
+    return JSON.stringify([]);                    // Inside callFake we can fake a funtion call and return anything we want
+})                                                // Like here we are retruning  a empty array [] in a string format
+
+        // warning Order of code matter. If we get localStorage first then spy on localStorage it won't mock
+        // But if we mock first then get value then It Will be mocked and our work will be Done
+
+//---- SpyOn Records every time a method is Used
+
