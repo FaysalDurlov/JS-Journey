@@ -7,10 +7,6 @@ let variable = 1 < 0.5 ? 'heads' : 'tails';
 let matRound = (Math.round(6.005)/100).toFixed(2) // will return 6.01
 
 
-
-
-
-
 /*============================= Objects ==============================================================================================================================================================*/
 
 const NONjsonObject = {
@@ -531,3 +527,16 @@ spyOn(localStorage,"getItem").and.callFake(()=>{  // Here "spyOn(---).and" also 
 
 //---- SpyOn Records every time a method is Used
 
+/* so let say we want to find if a method from a object is has been used ot not. 
+    OR may be it can be used Multiple time I want to know the exact Number of times
+    it has been called
+*/
+
+spyOn(localStorage,"setItem");  // Mocking SetItem method
+
+expect(localStorage.setItem).toHaveBeenCalledTimes(5);
+// so we expect localStorage.setItem has been called let say 5 times.
+// Warning: this toHaveBeenCalledTiems method can only be used if I mocked "that method (setItem in here) " previously. SO Mock first then use toHaveBeenCalledTimes()
+
+
+// Tip ---->  we can using this and find what values setItem received.
