@@ -53,17 +53,18 @@ console.log(CopyArrayForMthod_3);
 //12_M
 let NumberArrayFor12_m = [1,2,3,4,5,6,7];
 const addNum = (array,num)=>{
-    let CopyArrayForMapOutput= array.map((value)=> value+num);
+    let CopyArrayForMapOutput= array.map((value)=> value+num); // adding each Number of array by the num value
     return CopyArrayForMapOutput;
 };
-console.log(addNum(NumberArrayFor12_m,2));
+console.log("MAPP");
+console.log(addNum(NumberArrayFor12_m,2));  // adding each Number of array by 2 
 console.log(addNum([1,2,3],2));
 console.log(addNum([-2,-1,0,99],2));
 
 
 //12_N_O
 let FoodArrayFor12_n = ['egg','apple','egg','egg','ham'];
-let removeEgg = (foodArray)=>{
+let removeEgg = (foodArray)=>{    // this is like  funtion removeEgg(paramiter == FoodArrayFor12_n){}
     let CopyArrayForFilterOutput12_n = foodArray.filter((value)=>{
         if(value==='egg'){
             return false;
@@ -73,6 +74,7 @@ let removeEgg = (foodArray)=>{
     });
     return CopyArrayForFilterOutput12_n;
 };
+
 let UpdateRemoveEgg = (foodArray)=>{
     let count = 0;
     let CopyArrayForFilterOutput12_O = foodArray.filter((value)=>{
@@ -86,4 +88,5 @@ let UpdateRemoveEgg = (foodArray)=>{
     return CopyArrayForFilterOutput12_O;
 };
 console.log(removeEgg(FoodArrayFor12_n));
+
 console.log(UpdateRemoveEgg(FoodArrayFor12_n));

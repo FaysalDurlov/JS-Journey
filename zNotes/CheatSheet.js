@@ -275,7 +275,7 @@ console.log(copyArrayOfFilterMethod);
 
 
 let copyArrayOfMapMethod= [1,2,3].map((value,index)=>{
-    return 10;                // this will keep a track od the last returned item and save it to copy array.
+    return 10;                // this will keep a track of the last returned item and save it to copy array.
 });                           // after all iteration it will return the copy of the array.
 console.log(copyArrayOfMapMethod);
 // example practice-12-part2
@@ -302,6 +302,22 @@ console.log(oneLineFNC(2,3));
 
 // when to use?  try to use when we are passing a funtion to another so use arrow fnc as callback
 // Arrow Funtion Don't support Hoisting
+
+
+let FoodArrayFor12_n = ['egg','apple','egg','egg','ham'];
+let removeEgg = (foodArray)=>{    // this is like  funtion removeEgg(paramiter == FoodArrayFor12_n){}
+    let CopyArrayForFilterOutput12_n = foodArray.filter((value)=>{
+        if(value==='egg'){
+            return false;
+        }else{
+            return true
+        }
+    });
+    return CopyArrayForFilterOutput12_n;
+};
+console.log(removeEgg(FoodArrayFor12_n));
+
+
 
 const ObjectDemo = {
     method_1: function(){
@@ -511,7 +527,11 @@ describe('First Test Suite',()=>{
     });
 });
 
+
 //=========== MOCK (Jasmine)  ==========
+// ****** Mock can be used only one test.
+// to test again we must mock again
+
 
 //------ SpyOn can Fake a Value
 // Mock Means replease method with fake version
