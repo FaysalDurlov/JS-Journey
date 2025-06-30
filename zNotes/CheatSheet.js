@@ -572,4 +572,20 @@ expect(localStorage.setItem).toHaveBeenCalledTimes(5);
 // Warning: this toHaveBeenCalledTiems method can only be used if I mocked "that method (setItem in here) " previously. SO Mock first then use toHaveBeenCalledTimes()
 
 
-// Tip ---->  we can using this and find what values setItem received.
+// Tip ---->  we can use this and find what values setItem received.
+
+
+//Let’s say your app uses:
+localStorage.getItem("cart");
+localStorage.getItem("userSettings");
+localStorage.getItem("authToken");
+
+//With your current spy:
+spyOn(localStorage, "getItem").and.callFake(() => {
+    return "SAME VALUE FOR ALL KEYS";
+  });
+
+// All three will return "SAME VALUE FOR ALL KEYS" — which is likely not what you want.
+
+
+
