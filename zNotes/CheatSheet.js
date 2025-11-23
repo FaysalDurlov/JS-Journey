@@ -515,6 +515,9 @@ describe("This Is a Suit Which is Used to Give a title/ Discribe My Test. Ex. (M
 
 
 describe('test Suite: FormatCurrency',()=>{ // this creates a Test suite (More like Heading of a paragraph)
+
+    // Here each it means each test. so  information/context are not shared by 2 it methods. t
+
     it('Converts Cents into Dollars', ()=>{  // these "it" means indivisual tests
         expect(formatCurrency(2095)).toEqual('20.95');  // here the expect funtion resturns an Object. then we are checking is it equal to our desired ans? 
     });                                                 // more like if else 
@@ -526,10 +529,13 @@ describe('test Suite: FormatCurrency',()=>{ // this creates a Test suite (More l
     });
 });
 
+
+
+
 /*   the output will be like this formate
        test Suite: FormatCurrency
          .Converts Cents into Dollars
-         .Woks with 0
+         .Works with 0
          .rounds up to nearest cent
 
 */
@@ -570,6 +576,12 @@ spyOn(localStorage,"setItem");  // Mocking SetItem method
 expect(localStorage.setItem).toHaveBeenCalledTimes(5);
 // so we expect localStorage.setItem has been called let say 5 times.
 // Warning: this toHaveBeenCalledTiems method can only be used if I mocked "that method (setItem in here) " previously. SO Mock first then use toHaveBeenCalledTimes()
+
+
+
+expect(document.querySelector('.someHTMLClassName').innerText).toContain('SomeText that I can to check is it here or not')
+// imagine I have some text in html but I want to check if one specific text contains or not. here I
+// get the all the text using InnerText then checking using toContain method
 
 
 // Tip ---->  we can use this and find what values setItem received.
