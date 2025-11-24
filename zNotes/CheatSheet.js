@@ -516,7 +516,7 @@ describe("This Is a Suit Which is Used to Give a title/ Discribe My Test. Ex. (M
 
 describe('test Suite: FormatCurrency',()=>{ // this creates a Test suite (More like Heading of a paragraph)
 
-    // Here each it means each test. so  information/context are not shared by 2 it methods. t
+    // Here each it means each test. so  information/context are not shared by 2 it methods.
 
     it('Converts Cents into Dollars', ()=>{  // these "it" means indivisual tests
         expect(formatCurrency(2095)).toEqual('20.95');  // here the expect funtion resturns an Object. then we are checking is it equal to our desired ans? 
@@ -528,8 +528,6 @@ describe('test Suite: FormatCurrency',()=>{ // this creates a Test suite (More l
         expect(formatCurrency(2000.5)).toEqual('20.01')   // expect the fnc to give 20.01
     });
 });
-
-
 
 
 /*   the output will be like this formate
@@ -545,6 +543,24 @@ describe('First Test Suite',()=>{
         // tests
     });
 });
+
+//=========== HOOK (Jasmine)  ==========
+
+//since all it method works independently. so if there is a common work that I have to do I can use a Hook
+beforeEach(()=>{
+  // the common work codes
+})
+// here this funtion will expects a another funtion/ work that is common and I want to do these works before each test so my repitation code reduced
+
+// there are many hooks like
+
+beforeEach(()=>{})  // runs code before each tests
+afterEach(()=>{})   // runs code after each tests
+beforeAll(()=>{})   // runs code before all  tests
+afterAll(()=>{})    // runs code after all tests
+
+
+
 
 
 //=========== MOCK (Jasmine)  ==========
