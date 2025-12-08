@@ -39,10 +39,13 @@ object = {   // this is also a non json object
         console.log('method2')
     }
 }
+object.method()   // output: method_1
+object.method2()  // output : method_2
 
 //Read from Object
 ObjectName.notExitssProperty ////this will show undefine.
 NewPropertyName in ObjectName  /// this will show false if NewPropertyName is not in the object
+
 ObjectName.keyName
 ObjectName['keyName'] // if its exits it will retrun the value or else it will show Undefined
 ObjectName[keyName]   // in this way we can get the key value of a property from a object
@@ -269,16 +272,36 @@ let copyArrayOfFilterMethod = [1,-3,5].filter((value,index)=>{
     return true;   // filter method will keep a track of previous return. after the array ends it will return a copy of Array
 });                 // if previous return is true it will go for a iteration and add the item to copy array
                     // if false it will skip the next iteration and doesn't add the item to copy array. similer like continue when false
+                    
 // for this code the output will be [1,-3,5]
 console.log(copyArrayOfFilterMethod);
 // example practice-12-part2
 
 
-let copyArrayOfMapMethod= [1,2,3].map((value,index)=>{
+let copyArrayOfMapMethod = [1,2,3].map((value,index)=>{
     return 10;                // this will keep a track of the last returned item and save it to copy array.
 });                           // after all iteration it will return the copy of the array.
 console.log(copyArrayOfMapMethod);
+
 // example practice-12-part2
+
+
+// ++++++  map method need a funtion to do some work 
+
+let array = [1,2,3,4,5].map((numebers)=>{    // here we created a arrow funtion inside map method and given that directly and its have no name but map an use it and can apply on all the element
+    return numebers*10;
+})
+console.log(array); // output:  [ 10, 20, 30, 40, 50 ]
+
+
+let array_2 = [1,2,3,4,5].map(MultiplyBy_10);
+function MultiplyBy_10(numbers){    // here we created a separet function named(MultiplyBy_10) and given that funtion name to map method to use it and can apply on all the element
+    return numbers*10;
+}
+console.log(array_2); // output:  [ 10, 20, 30, 40, 50 ]
+
+
+
 
 
 /*============================= Arrow Funtions ================================================================================================================================================================*/
@@ -544,7 +567,11 @@ describe('First Test Suite',()=>{
     });
 });
 
-//=========== HOOK (Jasmine)  ==========
+
+
+
+
+//=========== HOOK (Jasmine)  ===========================================================================================================================================================================
 
 //since all it method works independently. so if there is a common work that I have to do I can use a Hook
 beforeEach(()=>{
@@ -563,7 +590,10 @@ afterAll(()=>{})    // runs code after all tests
 
 
 
-//=========== MOCK (Jasmine)  ==========
+//=========== MOCK (Jasmine)  ===========================================================================================================================================================================
+
+
+
 // ****** Mock can be used only one test.
 // to test again we must mock again
 
@@ -617,3 +647,119 @@ spyOn(localStorage, "getItem").and.callFake(() => {
 
 
 
+
+
+//=========== OOP  ===========================================================================================================================================================================
+
+class ClassName{  // this the class name
+
+    field_1;   // these are the Pulbic propety or field name of a class
+    field_2;
+
+    #privateField;  // this is a private property of the class.
+    // if there is a property that I only need inside of the class to use then we use it as a private propety in the class to remove access from outside.
+
+    constructor(constructerParamiter_1, constructerParamiter_2, constructerParamiter_3){   // class constructor
+        this.field_1 =  constructerParamiter_1
+        this.field_2 = constructerParamiter_2
+        this.#privateField = constructerParamiter_3
+    }
+    method_1(){
+        console.log("method_1")
+    }
+    method_2(){
+        console.log("method_2")
+    }
+}
+
+const ClassInstanceName = new ClassName(1,2,3)
+// these are the class instance of the class
+
+console.log(ClassInstanceName instanceof ClassName);  // checking if ClassInstanceName is a intance of the ClassName or not.  (Return TRUE)
+console.log(ClassInstanceName instanceof ClassName_1);  // checking if ClassInstanceName is a intance of the ClassName_1 or not.  (Return FALSE)
+
+
+
+class Parent{
+    feild_1;
+    field_2;
+    constructor(para_1,para_2){
+        this.field_1 = para_1;
+        this.field_2 = para_2;
+    }
+    methodOfParent(){
+        console.log("Method Of parent")         // this is the syntax of Inheretence
+    }
+}
+class Child extends Parent{   // here since there is no contructor fot he child by deafult it will inherete the constructor of its super class
+    child_field_1;
+    methodOfChild(){
+        console.log("Method Of child")
+    }
+}
+
+//=============================================================    PolyMorphisom and Inheretence ===================================================================
+
+class Product{
+    id;
+    image;
+    name;
+    rating;
+    priceCent;
+    constructor(productDetails){
+      this.id = productDetails.id
+      this.image = productDetails.image
+      this.name = productDetails.name
+      this.rating = productDetails.rating
+      this.priceCent = productDetails.priceCent
+    }
+    getStarUrl(){
+      return `images/ratings/rating-${this.rating.stars*10}.png`;
+    }
+    getPrice(){
+      return `$${formatCurrency(this.priceCent)}`
+    }
+    extraInfoHTML(){
+        return "Return From Parent Class";
+    }
+    extraInfoHTML_2(){
+        return "A Method Of parent Class";
+    }
+  }
+  
+class Clothing extends Product{
+    sizeChartLink;
+    constructor(productDetails){
+        
+        // we can do something like this. so here the new constructor will be called but it means we have to repeat codes that bad habit
+
+        // this.id = productDetails.id
+        // this.image = productDetails.image
+        // this.name = productDetails.name
+        // this.rating = productDetails.rating
+        // this.priceCent = productDetails.priceCent
+
+        // insted we can call super class constructor method for here the super class is Product (super Class = Parent Class)
+        super(productDetails); // here this means this child class constructor calls it super class constructor to create the filed then inhereted those field from parent to child
+
+        /*
+        Here the super() created the fields of the parent class. so the fields are ready with datas now we can inherete those
+        to use in the child class
+        */
+
+        this.sizeChartLink = productDetails.sizeChartLink;
+
+        // after inhereting all the filed now we created a special that is just for the child class. (No repeat codes)
+    }
+
+    extraInfoHTML(){ // method overring
+        super.extraInfoHTML()  // this will return the parent "extraInfoHTML()" method
+        // here using this we can call the super class method in a child class. if needed. Just by usng Super keyword
+        // Note: since we override the "extraInfoHTML()" method. so now If i need to call "extraInfoHTML()" orginaal ver that is in parent class I need to we super.extraInfoHTML()
+        // let say there is another method "extraInfoHTML_2()" since its not overriden I can just call extraInfoHTML_2() without any super and I will get the parent version.
+        // Only difference is IF orrderriden super must be included otherwise no need the super keyword
+
+        return "return From child Class"
+    };
+}
+  
