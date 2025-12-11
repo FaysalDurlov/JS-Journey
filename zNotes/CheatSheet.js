@@ -437,7 +437,7 @@ console.log(car1);
 */
 
 
-//=========== Named Export ==========
+//=========== Named Export ================================================================================
 
 //Import   
 import {variableFromOtherFolder} from '../data/cart.js'; // import must be on top of the file to work
@@ -459,7 +459,7 @@ import * as aVariableName from '../data/cart.js';
 // this * will group all the elements in aVariableName as a object then we can acess it
 
 aVariableName.property_1;
-aVariableName.FNC();  // then we can use codes from othe file like this
+aVariableName.FNC();  // then we can use codes from other file like this
 
 //Export   
 export variableFromOtherFolder; // this line will be in source folder;
@@ -649,7 +649,7 @@ spyOn(localStorage, "getItem").and.callFake(() => {
 
 
 
-//=========== OOP  ===========================================================================================================================================================================
+//================================================================================================ OOP  ==========================================================================================
 
 class ClassName{  // this the class name
 
@@ -691,6 +691,8 @@ class Parent{
         console.log("Method Of parent")         // this is the syntax of Inheretence
     }
 }
+
+
 class Child extends Parent{   // here since there is no contructor fot he child by deafult it will inherete the constructor of its super class
     child_field_1;
     methodOfChild(){
@@ -762,4 +764,37 @@ class Clothing extends Product{
         return "return From child Class"
     };
 }
+const tShirt = new Clothing ({
+    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+    name: "Adults Plain Cotton T-Shirt - 2 Pack",
+    rating: {
+      stars: 4.5,
+      count: 56
+    },
+    priceCent: 799,
+    keywords: [
+      "tshirts",
+      "apparel",
+      "mens"
+    ],
+    type: "clothing",
+    sizeChartLink: "images/clothing-size-chart.png"
+  });
+console.log(tShirt);
   
+
+
+
+// ================================ this =================
+function logThis(){
+    console.log(this)
+}
+logThis();             // output :  Undefines
+logThis.call("hello")  // output:  hello
+
+
+function logThis_2(pram1,pram2){
+    console.log(this)
+}
+logThis_2.call("hello","param_1","param_2")   // output:  hello
