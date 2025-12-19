@@ -258,10 +258,10 @@ setTimeout(doSomething2,3000);  //Takes 2 parameters  first parameter is the wor
 
 
 let set_IntervalId = setInterval(callbackFunction, delayInMilliseconds)  // here the setInterval works like setTimeout but interval works repeatedly.
-clearInterval(set_IntervalId)  // to stop that repeatition we can get the id that setInterval returns ans use it to stop
+clearInterval(set_IntervalId)  // to stop that repeatition we can get the id that setInterval returns and use it to stop
 
 /* Asynchronous Code :  means the computer won't wait for setTimeout to finish. But it will do the other codes/works then when 3 sec is over (in this case)
-                        Thi setTimeout() will be executed (both setInterval,setTimeout is Asynchronous Code example)
+                        This setTimeout() will be executed (both setInterval,setTimeout is Asynchronous Code example)
     
     Synchronous Code :  means computer will execute code line by line. It will wait for a line to finish then will go to next
 */
@@ -587,7 +587,21 @@ beforeAll(()=>{})   // runs code before all  tests
 afterAll(()=>{})    // runs code after all tests
 
 
+beforeAll((done)=>{
+    LoadProducts(()=>{
+      done()
+    })
+  })
 
+// Here beforeAll() is a hook here done parmeter means. after the beforeAll funtion executed untill the done() in called js will wait and won't go to the tests of below codes
+// for example I will wait for 5 sec then call done(). so thats means the callback funtion in beforeAll() will finish in 5 sec after these 5 sec next code will be executed
+
+
+
+// we can use it in "it"
+it((done)=>{
+    console.log("done");
+})
 
 
 //=========== MOCK (Jasmine)  ===========================================================================================================================================================================
@@ -644,9 +658,6 @@ spyOn(localStorage, "getItem").and.callFake(() => {
   });
 
 // All three will return "SAME VALUE FOR ALL KEYS" — which is likely not what you want.
-
-
-
 
 
 //================================================================================================ OOP  ==========================================================================================
@@ -786,7 +797,7 @@ console.log(tShirt);
 
 
 
-// ================================ this =================
+// ================================ this ===================================================================
 function logThis(){
     console.log(this)
 }
@@ -798,3 +809,239 @@ function logThis_2(pram1,pram2){
     console.log(this)
 }
 logThis_2.call("hello","param_1","param_2")   // output:  hello
+
+
+
+//=================================================== Back_end ============================================================
+
+// HTPP massage can Be send by a Class named   "XMLHttpRequest"
+
+const xhr = new XMLHttpRequest();
+xhr.open('First Parameter is the Type Of Request',
+    "this second parameter is the URL where I want to send the massage to")
+
+/*
+    There are many type of Request the commons one is
+    1. GET      
+    2. POST
+    3. PUT
+    4. DELETE
+*/
+    // for example this should be :
+    xhr.open("GET","https://supersimplebackend.dev")
+
+// To check requests on chrome open Network Tab and Refresh the page. Must refresh after opening network tab!
+
+
+const xhr_2 = new XMLHttpRequest();
+xhr.addEventListener('load',()=>{ // here Event Listener waits for a "load" event to happen then its executes the funtion that is givent to eventListener
+    console.log(xhr_2.response);
+})
+
+xhr_2.open("GET","https://supersimplebackend.dev")  // Configure request  (like planning to what to oder in a returant)
+xhr_2.send();   // its like placing the order
+/* here we write xhr.response it might not work cz js will not wait fo the respose to come it will go the next line to execute. 
+    so we added a event listener then we send it. just like previously we add a button eventListener and then we can click it. not the other way
+    around
+*/
+
+/* URL path / API   https://supersimplebackend.dev/home   -> here the URL path is home
+                    https://supersimplebackend.dev/hello  -> here the URL Path is hello
+                    https://supersimplebackend.dev        -> here the URL Path is /
+                    https://supersimplebackend.dev/product/first  -> here the URL Path is product/first
+
+    ===> These URL Paths are the only way we can access to the backend. These are "Backend API"
+    ===> Every backend has a documentation where these URL path/ API are given. these are kind of URL Path or API are confidential info for security
+    ===> If we need access the backend we need the correct API that supported by that backend or it will show a error 404
+
+    ===> when we use browser search bar this also sends a GET request to the backend and load it on the tab !
+*/
+
+/*  Status Code
+    starting with 4  -> error caused by backend client side 
+    starting with 5  -> error caused by backend side
+    starting with 2  -> success
+*/
+//====================================  CALLBACK =============================
+
+export function LoadCart(fun){
+    let xhr = new XMLHttpRequest()
+    xhr.addEventListener("load",()=>{
+      console.log(xhr.response);
+    })
+    xhr.open("GET","https://supersimplebackend.dev/cart");
+    xhr.send()
+    fun(); // this means we will pass a funtino and we want it to execute after all info loading from server
+  }
+
+
+
+LoadProducts(()=>{
+    LoadCart(()=>{   // here we passing a nameless funtion. there are 2 funtion called inside that anonymous funtion to execute after loading the data from server
+        renderOrderSummary();
+        renderPaymentSummary();
+    })
+})
+/*
+here we are in callback hell
+we call loadproduct funtion which needs time to complete so we will wait for it to complete and give a another funtion to execute after loading
+here we have loadcart which also needs time to complete so we give another funtion to execute after loading the cart. that funtion will be called after the loading
+here we have that function as anonymous funtion and inside that we are rendering 
+
+basically loadProducts(waiting) after complete 
+            LaodCart(waiting) after complete 
+               Do the other things
+
+
+Note: see each funtion has a anonymouse funtion though that we are passing our chained work. so it can be done sequencely
+*/
+
+// or we just use promise like this
+
+new Promise((resolve)=>{
+    LoadProducts(()=>{
+        resolve()
+    });
+
+}).then(()=>{
+    return new Promise((resolve)=>{
+        LoadCart(()=>{
+            resolve();
+        })
+    })
+}).then(()=>{
+    renderOrderSummary();
+    renderPaymentSummary();
+})
+
+
+
+//========================================  Promise ===========================================
+
+
+new Promise((resolve, reject)=>{    // if no issue we execute resolve() otherwise reject(). these resolve and reject are funtions
+    console.log("do Something")   // when we create a instance of promise object its runs the callback funtion no matter what ! 
+})
+
+new Promise((resolve, reject)=>{
+    doSomethingCallBackFunction(()=>{
+        resolve();      // here the resolve works like jasmine done() funtion. untill we call resolve() the program can't go to the next code.
+    }) 
+})
+
+
+// Important:  when we call promise object it creates a separate thread of code. like 2 program running parallel.
+
+
+console.log("Before promise")
+new Promise((resolve)=>{
+    console.log("started promise")
+    LoadProducts(()=>{
+        console.log("Finished Loading")
+        resolve();
+        console.log("Resolve funtion Called")  // even If I called resolve() these will also work
+    })
+    console.log("End of the Promise")
+}).then(()=>{
+    console.log("next step in Then !")  
+    // .then() runs ONLY when the promise is resolved (or rejected)
+    // resolve() does not run .then() — it unlocks it.
+    /*
+    here the resolve() is like a door when its called the door is open
+        then we can open the door and on the other side .then() methods waits
+        to be executed
+
+    so we can say resolve() controls when we need to go .then()
+    */
+})
+
+/* output:
+Before promise
+started promise
+
+End of the Promise
+
+Load Products
+Finished Loading
+Resolve funtion Called
+next step in Then !
+*/
+
+
+new Promise((resolve)=>{
+    resolve("this value can be passed to then")
+}).then((param_Then_1)=>{
+    console.log(param_Then_1)  // the resolve value will be passed to parameter of the next then
+}).then((param_Then_2)=>{
+    console.log(param_Then_2)  // this is undifined cz previous of this "then" no resolve has been passed with an argument
+})
+
+
+
+new Promise((resolve)=>{
+    LoadProducts(()=>{
+        resolve()
+    });
+
+}).then(()=>{
+    return new Promise((resolve)=>{          // if all the funtion depends on each other and we need a sequential execution then we will use like this
+        LoadCart(()=>{                       
+            resolve();
+        })
+    })
+}).then(()=>{
+    renderOrderSummary();
+    renderPaymentSummary();
+})
+
+// instead we can do this too since both funtion are independent. one dosen't depends on another
+Promise.all([
+    new Promise((resolve)=>{
+        LoadProducts(()=>{
+            resolve('Value_1 passed')  // output: ['Value_1 passed', undefined]. since firsty element gives a value. but 2nd one dosen't so it undifined
+
+
+        });                        // this is a array of promise this means all the promises are running perallel.
+                                   // if all the funtions are independent then we can use promise.all
+                                   // all the funtions are running independenly but parallel so less time from "sequential execution"
+    }),
+    new Promise((resolve)=>{
+        LoadCart(()=>{
+            resolve();
+        })
+    })
+]).then(()=>{
+    renderOrderSummary();
+    renderPaymentSummary();
+})
+
+
+let status = false
+new Promise((resolve,reject)=>{
+    if(status){
+        resolve("status is True")
+    }else{
+        reject("status is false")
+    }
+}).then((value_from_Resolve)=>{      // when we use then its parameter are values from the resolve() funtion
+    console.log(value_from_Resolve)
+}).catch((value_from_reject)=>{     // when we use catch its parameter are values from the reject() funtion. its kind of cathing a error and showing it in console
+    console.log(value_from_reject)
+})
+
+
+.then((value) => {
+    // do something
+    // return something
+ })
+
+/*
+--> If you return a value → next .then() runs immediately
+--> If you return a Promise → next .then() waits for it
+--> If you return nothing → next .then() runs immediately
+
+** returning a promise means the programs wait for the promise to finish before going to next step
+
+Note: to have sequential promise to haven We have to return in every then method other wise next chained then method won't wait.
+    in promise.all since its a array all the promise are independent and its not sequential all the promise executes at the same time parallely
+*/
