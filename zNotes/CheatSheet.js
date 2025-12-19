@@ -593,9 +593,9 @@ beforeAll((done)=>{
     })
   })
 
-// Here beforeAll() is a hook here done parmeter means. after the beforeAll funtion executed untill the done() in called js will wait and won't go to the tests of below codes
+// Here beforeAll() is a hook here done parmeter. after the beforeAll funtion executed untill the done() in called js will wait and won't go to the tests of below codes
 // for example I will wait for 5 sec then call done(). so thats means the callback funtion in beforeAll() will finish in 5 sec after these 5 sec next code will be executed
-
+// done() is like the key of a lock. unless I called done() the lock won't open and I can't go to the next step
 
 
 // we can use it in "it"
@@ -812,7 +812,7 @@ logThis_2.call("hello","param_1","param_2")   // output:  hello
 
 
 
-//=================================================== Back_end ============================================================
+//=================================================== Back_end  &  HTTP request ============================================================
 
 // HTPP massage can Be send by a Class named   "XMLHttpRequest"
 
@@ -916,7 +916,7 @@ new Promise((resolve)=>{
 
 
 
-//========================================  Promise ===========================================
+//========================================  Promise =======================================================================
 
 
 new Promise((resolve, reject)=>{    // if no issue we execute resolve() otherwise reject(). these resolve and reject are funtions
@@ -1045,3 +1045,49 @@ new Promise((resolve,reject)=>{
 Note: to have sequential promise to haven We have to return in every then method other wise next chained then method won't wait.
     in promise.all since its a array all the promise are independent and its not sequential all the promise executes at the same time parallely
 */
+
+
+
+//========================================  fetch =======================================================================
+
+// fetch works like xhr.open() method. but here the "GET" argument is already by default we have to just give the URL path / API to fetch from
+
+fetch("https://supersimplebackend.dev/cart") // this will send the request to teh backend
+
+/*
+    fetch() is a promise type funtion. when we call fetch() it returns a promise.
+    as previously we used any promise.then()
+    we can also do that with any fetch().then(). because its returns a promise and we can treat it as a promise
+*/
+
+fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this response parameter contains the resonse from the backend
+    console.log(response);    // here this reponse gives us many information like status code, data, adn other stuffs. But we want the products list
+    return response.json();  // so we use reponse.JSON(). here response.JSON() is an asynchronis code it returns a promise so we have to wait for it to complete.
+                             // so that our product can be loaded
+    // so for a promise to finish in "then" method we used return keyword. so this "then" won't go to the next "then" before finishing it
+}).then((productData)=>{
+    // here productData parameter contains the response.JSON() returned value
+    console.log(productData);
+})
+
+// this funtion is similer like previous
+function LoadProductsFetch(){
+    const Promise = fetch("https://supersimplebackend.dev/products").then((response)=>{
+     return response.json(); 
+    }).then((productData)=>{
+      products = productData.map(
+        (productDetails)=>{
+          if(productDetails.type === "clothing"){
+            return new Clothing(productDetails)
+          }
+          else if(productDetails.type === "appliances"){
+            return new Appliances(productDetails)
+          }
+          return new Product(productDetails)
+        });
+      })
+     return Promise; // we return the fetch so that we can chain more then() after this
+  }
+LoadProductsFetch().then(()=>{
+    console.log("we return the fetch so that we can chain the methods")
+});
