@@ -872,7 +872,7 @@ export function LoadCart(fun){
     xhr.open("GET","https://supersimplebackend.dev/cart");
     xhr.send()
     fun(); // this means we will pass a funtino and we want it to execute after all info loading from server
-  }
+}
 
 
 
@@ -1016,20 +1016,6 @@ Promise.all([
 })
 
 
-let status = false
-new Promise((resolve,reject)=>{
-    if(status){
-        resolve("status is True")
-    }else{
-        reject("status is false")
-    }
-}).then((value_from_Resolve)=>{      // when we use then its parameter are values from the resolve() funtion
-    console.log(value_from_Resolve)
-}).catch((value_from_reject)=>{     // when we use catch its parameter are values from the reject() funtion. its kind of cathing a error and showing it in console
-    console.log(value_from_reject)
-})
-
-
 .then((value) => {
     // do something
     // return something
@@ -1091,3 +1077,242 @@ function LoadProductsFetch(){
 LoadProductsFetch().then(()=>{
     console.log("we return the fetch so that we can chain the methods")
 });
+
+
+
+//================================================================== ASYNC ==========================================================
+/*
+    async retruns a promise !
+*/
+
+async function loadPage() {
+    console.log("load Page")
+    return "This retrun acts like a resolve()"  
+    // this return is like placing a value inside resolve().
+
+} // this code is the shortcut of the code below
+
+function loadPage(){
+    return new Promise((resolve)=>{         // shortcut of previous code
+        console.log("load Page")
+        resolve("This retrun acts like a resolve()");
+    })
+}
+
+loadPage().then((parameterPassedFromASYNC)=>{
+    console.log(parameterPassedFromASYNC) // output: "This retrun acts like a resolve()"
+    console.log("Next step")
+})  // since loadPage returns a promise and we can add "then" after each promise.
+
+/* notice :  Imagine if we are not passing any argument in the resolve funtion
+              then the parameter in "then" will be undifined
+*/
+
+
+//================================================================ await ============================================================
+
+
+// imagine LoadProductsFetch() need time to load from backend. 
+// how can we do some steps after loading ?
+
+// option: 1 
+LoadProductsFetch().then(()=>{
+    console.log("loaded the items. now Do the next step")
+})
+
+// option: 2
+await LoadProductsFetch() // this await keywords. wait for the promise to retrun then goes to next line.
+console.log("loaded the items. now Do the next step")
+/* benfits:  1: no more .then() chaining
+             2: more easier to understand. one line of code at a time.
+
+    Note: we can only use await inside of an async function
+            and await can only used in promises. not in a callback
+*/
+
+async function outerFuntion() {
+    console.log("before await")
+    function innerFuntion(){
+        await laodPage();    // this is not allowed
+    }
+    // await must be inside of a async funtion
+}
+
+
+async function somethig() {
+    let a_variable = await new Promise((resolve)=>{
+        console.log("do a thing")
+        resolve('resolved value set here')
+    })
+
+    console.log(a_variable);
+    // output: resolved value set here
+
+    /* normaly what happens when we don't use await?
+            a value passed inside resolve() can be use as a prameter inside of ".then()" method.
+
+        But when we use await. we cant use the inside value of a resolve() like previously
+            we can save it in a variable and can use it. awaits returns the resolve() value;
+
+    */
+}
+
+
+
+// normal way using promise:
+function loadPage(){
+    return new Promise((resolve)=>{
+        console.log("load Page");
+        // our callback funtions has done its work. now we have to exit.
+        // so we call resolve() to come out
+        resolve();
+    }).then(()=>{
+        return LoadProductsFetch(); // this funtion returns a promise 
+    }).then(()=>{
+        return new Promise((resolve)=>{
+            resolve("value_1");
+        })
+    })
+}
+
+// easier way using Async await
+async function laodPage(){
+    console.log("load Page")
+    await LoadProductsFetch();
+    return "value_1"
+}
+
+// Both are same code
+
+
+
+
+//========================================================== ERROR Handling ===============================================================
+
+function LoadCart(fun){
+    let xhr = new XMLHttpRequest()
+
+    xhr.addEventListener("load",()=>{
+      console.log(xhr.response);
+    });
+
+    xhr.addEventListener("error",(error)=>{
+        console.log("Urfortunately error occur")
+    });
+    // here this event listens for an error !. its like try/catch
+    // try loading catch error !
+
+
+    xhr.open("GET","https://supersimplebackend.dev/cart");
+    xhr.send()
+    fun(); // this means we will pass a funtino and we want it to execute after all info loading from server
+}
+
+
+// ------------------------------------------------------- Error handle in Pomise  -------------------------------------------------------------------
+
+let status = false
+new Promise((resolve,reject)=>{
+
+    if(status){
+        resolve("status is True")
+    }else{
+        reject("status is false")
+    }
+
+}).then((value_from_Resolve)=>{   
+
+   // when we use then its parameter are values from the resolve() funtion
+    console.log(value_from_Resolve)
+
+}).catch((value_from_reject)=>{     
+
+    // when we use catch its parameter are values from the reject() funtion. its kind of cathing a error and showing it in console
+    console.log(value_from_reject)
+})
+
+new Promise((resolve)=>{
+    if(status){
+        resolve("status is True")
+    }
+}).then((value_from_Resolve)=>{   
+    console.log(value_from_Resolve)
+
+}).catch((value_from_reject)=>{     // This parameter Is the Error that will be catched by this method
+    console.log(value_from_reject)
+})
+
+// ------------------------------------------------------- Async Await error Handling (try/catch) -------------------------------------------------------------------
+
+async function someFunction(){
+    try{
+        console.log("Try this part Code")
+        await LoadProductsFetch();
+    } catch(error){
+        console.log("the Try method failed. SO this catch activated")
+    }
+    console.log("Do Something else")
+}
+
+
+try{
+    notAFunction(); // this function is not exits here. so this error will be catched
+    console.log("this line is after Error in try block") // this line won't be executed. since there is a error previously
+    // since there is a error program will stoped right there and goes to catch. no code will be executed after an error in try block
+
+} catch(error){ // here this error contains the error which I can use normally like a value in a variable
+    console.log("There is a Error Here");
+}
+
+
+// manually Throw an Error
+try{
+    throw "this an error" // this line give throws a error. so after this line in try block nothing executed it goes to catch block
+    console.log("do Something")
+    console.log("do Something")
+    console.log("do Something")
+    console.log("do Something")
+} catch(error){
+    console.log(error) // output:  "this an error"
+}
+
+
+// try catch in promise
+try{
+    await new Promise((resolve)=>{
+        throw "error value 1"  // this trows a error which is catched by the .catch method
+        console.log("do something")
+    }).catch((error)=>{
+        console.log(error)
+        console.log(" this is an error got caught inside promise Catch")  // caught here. since this catch is first catch so its get triggered
+    })
+} catch(error){ // no Error caught here. because all the error already handled. so this catch dosen't get triggered
+    console.log(error)
+    console.log("there is an Error outside Catch") 
+}
+/*    output:
+    error value 1
+    this is an error got caught inside promise Catch
+*/
+
+
+
+
+try{
+    await new Promise((resolve)=>{
+        LoadCart(()=>{
+            throw "error value 1";      // this won't work properly !!!!!!!!!
+            console.log("do something")
+        })
+    })
+} catch(error){
+    console.log(error)
+    console.log("there is an Error outside Catch") 
+}
+/*  
+    Explaination
+    since promise is an obejct. when we create an instanse the promise constructor activates! and the constructor creates a object including resolve() parameter function.
+    and still there is no error.
+    when we call loadcart() and passed the callback
+
+*/
