@@ -80,8 +80,11 @@ localStorage.setItem('key_name', 'valueInString');
 // set value in Local storage using a key
 localStorage.getItem('key_name');
 //read value from that key from the local storage
+
 localStorage.removeItem('key_name');
-// remove the object from under that key from local storage
+// remove the object that contains this key from local storage. (removes only one single key: value)
+
+localStorage.clear() // removes all the value in localStorage
 
 
 
@@ -131,6 +134,8 @@ window.document
 window.document.title
 window.console.log('Hello')
 window.alert
+window.location.href = "some/file/path"  // by this the page url will be changed and the user will be auto directed to a new link but in same TAB
+
 // we always type document without window object why? js automaic add this in behind
 // under window we have document, console, elements, alert applicaton(localStorage) like everything it like Mother of all object
 //  under thid window we have document under document we have html etc like this
@@ -170,6 +175,7 @@ array.length //gives the lenght of the array. array has the property of length c
             // is a obejct
 array.isArray([1,2,3]) // return true bcz [1,2,3] is a valid array for other its false
 array.push(100) //appends 100
+array.unshift(100) // insert 100 in the first index
 array.splice(0,2) // it will remove item from index 0. and it will happen 2 times
 // we can add item and replace item and remove item using this splice()
 array2 = array.slice() // this copies the array to array2. 
@@ -660,7 +666,7 @@ spyOn(localStorage, "getItem").and.callFake(() => {
 // All three will return "SAME VALUE FOR ALL KEYS" — which is likely not what you want.
 
 
-//================================================================================================ OOP  ==========================================================================================
+//======================================================================================== OOP  ==========================================================================================
 
 class ClassName{  // this the class name
 
@@ -797,7 +803,7 @@ console.log(tShirt);
 
 
 
-// ================================ this ===================================================================
+// =================================================================================  this ==================================================================================================
 function logThis(){
     console.log(this)
 }
@@ -812,7 +818,7 @@ logThis_2.call("hello","param_1","param_2")   // output:  hello
 
 
 
-//=================================================== Back_end  &  HTTP request ============================================================
+//========================================================================= Back_end  &  HTTP request ====================================================================================
 
 // HTPP massage can Be send by a Class named   "XMLHttpRequest"
 
@@ -822,10 +828,10 @@ xhr.open('First Parameter is the Type Of Request',
 
 /*
     There are many type of Request the commons one is
-    1. GET      
-    2. POST
-    3. PUT
-    4. DELETE
+    1. GET      -->  get soemthig from server
+    2. POST     --> create something (add a new thing)
+    3. PUT      --> update something (overwrite)
+    4. DELETE   --> Delete something
 */
     // for example this should be :
     xhr.open("GET","https://supersimplebackend.dev")
@@ -862,7 +868,110 @@ xhr_2.send();   // its like placing the order
     starting with 5  -> error caused by backend side
     starting with 2  -> success
 */
-//====================================  CALLBACK =============================
+
+
+
+
+//====================================================================================  fetch ==============================================================================================
+
+// fetch works like xhr.open() method. but here the "GET" argument is already by default we have to just give the URL path / API to fetch from
+
+fetch("https://supersimplebackend.dev/cart") // this will send the request to teh backend
+
+/*
+    fetch() is a promise type funtion. when we call fetch() it returns a promise.
+    as previously we used any promise.then()
+    we can also do that with any fetch().then(). because its returns a promise and we can treat it as a promise
+*/
+
+fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this response parameter contains the resonse from the backend
+
+    console.log(response);    // here this reponse gives us many information like status code, data, and other stuffs. But we want the products list
+
+    return response.json();  // so we use reponse.JSON(). here response.JSON() is an asynchronis code it returns a "promise" so we have to wait for it to complete.
+                             // so that our product can be loaded
+
+    // so for a promise to finish in "then" method we used return keyword. so this "then" won't go to the next "then" before finishing it
+
+
+}).then((productData)=>{
+    // here productData parameter contains the response.JSON() returned value
+    console.log(productData);
+})
+
+// this funtion is similer like previous
+function LoadProductsFetch(){
+    const Promise = fetch("https://supersimplebackend.dev/products").then((response)=>{
+     return response.json(); 
+    }).then((productData)=>{
+      products = productData.map(
+        (productDetails)=>{
+          if(productDetails.type === "clothing"){
+            return new Clothing(productDetails)
+          }
+          else if(productDetails.type === "appliances"){
+            return new Appliances(productDetails)
+          }
+          return new Product(productDetails)
+        });
+      })
+     return Promise; // we return the fetch so that we can chain more then() after this
+  }
+LoadProductsFetch().then(()=>{
+    console.log("we return the fetch so that we can chain the methods")
+});
+
+
+
+
+// For other Request Type
+
+fetch("https://supersimplebackend.dev/orders",{
+
+    method: "POST",                                 // declaring the request type
+
+    headers: {"Content-Type": "application/json"},  
+    // declaring the content type of the main massage that will be in the body of the request. header tells the server the format of the request's body
+
+
+    body: json.stringify({                         // this is the body that contains our main massage. since we are sending json as we declare in header. 
+                                                  // thats why we are trasforming it into a json object
+        cart: [
+            {
+            productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
+            quantity: 2,
+            deliveryOptionId: '1'
+            }, 
+            {
+            productId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
+            quantity: 1,
+            deliveryOptionId: '2'
+          }
+        ]
+    })
+})
+
+
+
+/*      IN chrome Dev Tool
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+//======================================================================  CALLBACK ===============================================================================================
 
 export function LoadCart(fun){
     let xhr = new XMLHttpRequest()
@@ -916,7 +1025,7 @@ new Promise((resolve)=>{
 
 
 
-//========================================  Promise =======================================================================
+//=============================================================----============  Promise ===============================================================================------==============
 
 
 new Promise((resolve, reject)=>{    // if no issue we execute resolve() otherwise reject(). these resolve and reject are funtions
@@ -1031,53 +1140,6 @@ Promise.all([
 Note: to have sequential promise to haven We have to return in every then method other wise next chained then method won't wait.
     in promise.all since its a array all the promise are independent and its not sequential all the promise executes at the same time parallely
 */
-
-
-
-//========================================  fetch =======================================================================
-
-// fetch works like xhr.open() method. but here the "GET" argument is already by default we have to just give the URL path / API to fetch from
-
-fetch("https://supersimplebackend.dev/cart") // this will send the request to teh backend
-
-/*
-    fetch() is a promise type funtion. when we call fetch() it returns a promise.
-    as previously we used any promise.then()
-    we can also do that with any fetch().then(). because its returns a promise and we can treat it as a promise
-*/
-
-fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this response parameter contains the resonse from the backend
-    console.log(response);    // here this reponse gives us many information like status code, data, adn other stuffs. But we want the products list
-    return response.json();  // so we use reponse.JSON(). here response.JSON() is an asynchronis code it returns a promise so we have to wait for it to complete.
-                             // so that our product can be loaded
-    // so for a promise to finish in "then" method we used return keyword. so this "then" won't go to the next "then" before finishing it
-}).then((productData)=>{
-    // here productData parameter contains the response.JSON() returned value
-    console.log(productData);
-})
-
-// this funtion is similer like previous
-function LoadProductsFetch(){
-    const Promise = fetch("https://supersimplebackend.dev/products").then((response)=>{
-     return response.json(); 
-    }).then((productData)=>{
-      products = productData.map(
-        (productDetails)=>{
-          if(productDetails.type === "clothing"){
-            return new Clothing(productDetails)
-          }
-          else if(productDetails.type === "appliances"){
-            return new Appliances(productDetails)
-          }
-          return new Product(productDetails)
-        });
-      })
-     return Promise; // we return the fetch so that we can chain more then() after this
-  }
-LoadProductsFetch().then(()=>{
-    console.log("we return the fetch so that we can chain the methods")
-});
-
 
 
 //================================================================== ASYNC ==========================================================
@@ -1296,8 +1358,6 @@ try{
 */
 
 
-
-
 try{
     await new Promise((resolve)=>{
         LoadCart(()=>{
@@ -1309,10 +1369,43 @@ try{
     console.log(error)
     console.log("there is an Error outside Catch") 
 }
+
 /*  
     Explaination
-    since promise is an obejct. when we create an instanse the promise constructor activates! and the constructor creates a object including resolve() parameter function.
-    and still there is no error.
-    when we call loadcart() and passed the callback
+     CallSatck --> 
+        throw "error value 1"
+        ()=>{.........}
+        loadCart()
+        (resovle)=> {......}
+        new promise()
 
+    since promise is an obejct. when we create an instanse the promise. the constructor runs instantly and its get passed with loadCart() function
+     but this loadCart() function is asyncronis code (means it takes some time to complete). but the contrustor dosen't wait it runs and finishs.
+        after the loadCart() loaded from backend. it executes "throw" but since promise contructor finshed its job the "throw error" is outside of promise and it doesn't get caught
+
+    ==> Promises cannot magically catch errors from future callbacks.
+
+    so, Throw = synchronous    (dose not work in the future)
+        Reject = asynchronous  (dose work in the future)
 */
+
+// so why Reject works?
+/*
+        Think of a Promise as a box with two buttons:
+        Resolve()  |  Reject()
+    when We create a promise
+
+    new promise((resolve,reject)=>{
+        console.log("something")
+    })
+
+    JavaScript gives you:
+            resolve → tell Promise: “success”
+             reject → tell Promise: “failed”
+    
+    Await promise (means)
+        “Pause here.
+        If promise resolves → continue
+        If promise rejects → throw the rejection value”
+
+*/  
