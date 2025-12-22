@@ -1409,3 +1409,35 @@ try{
         If promise rejects → throw the rejection value”
 
 */  
+
+
+//=========================================================================== URL parameter/ Search Parameter ======================================================================================
+
+/*
+    in URL we can save data like key: value
+*/
+
+"https://supersimple.dev" // this is a URL
+
+"https://supersimple.dev?keyName=123"  // this is a URL parameter
+
+// it means 
+{
+    keyName: "123"
+}// this way we can save some data in the URL of a page
+
+// Tips: if we genarate any links then use this parameter we can pass some data to use in next page
+
+
+// we can save multiple parameter using   "&"
+"https://supersimple.dev?keyName_1=123&keyName_2=456" // there are 2 (key: value) pair
+
+
+// to get these key values we can use this code
+const pageURL = new URL(window.location.href) // this give the url of the page
+console.log(pageURL.searchParams.get("keyName_1")) // output: 123
+console.log(pageURL.searchParams.get("keyName_2")) // output: 456
+
+
+// imagine we search Youtube "javaScript Tutorial" it gets saved in url like this
+"https://youtube.com/result?search_query=javaScript+Tutorial" // the space is converted to "+"
