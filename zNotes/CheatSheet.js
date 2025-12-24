@@ -261,6 +261,12 @@ setTimeout(doSomething2,3000);  //Takes 2 parameters  first parameter is the wor
                                 // 2nd parameter is in milisecond after we want to do the work that is on first parameter
 // this will happen just one single time and will stop after that
 
+clearTimeout(timeoutId);
+timeoutId = setTimeout(()=>{
+    document.querySelector(`.js_added_massage_${productId}`).classList.remove('opacityClass');
+},2000);
+// setTimeout returns an Id if I use clearTimeout(timeoutId) it will stop it
+
 
 
 let set_IntervalId = setInterval(callbackFunction, delayInMilliseconds)  // here the setInterval works like setTimeout but interval works repeatedly.
@@ -502,6 +508,10 @@ import aThing from 'a_file_or_a_link_esm' // import without any brackets (This i
 
 
 /*============================= ExternalLibrary  ================================================================================================================================================================*/
+
+
+
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 // DayJs  famous for date type uses
 // we can add library same as we add js file in html file. using <script src = "library_Chrome_Link" ></script>
@@ -839,6 +849,9 @@ xhr.open('First Parameter is the Type Of Request',
 // To check requests on chrome open Network Tab and Refresh the page. Must refresh after opening network tab!
 
 
+
+// this is how we can send a request to the backend
+// method GET
 const xhr_2 = new XMLHttpRequest();
 xhr.addEventListener('load',()=>{ // here Event Listener waits for a "load" event to happen then its executes the funtion that is givent to eventListener
     console.log(xhr_2.response);
@@ -850,6 +863,24 @@ xhr_2.send();   // its like placing the order
     so we added a event listener then we send it. just like previously we add a button eventListener and then we can click it. not the other way
     around
 */
+
+
+// method Post
+function FetchPost18d_XHR() {
+    const xhr = new XMLHttpRequest();
+  
+    xhr.open("POST", "https://supersimplebackend.dev/greeting");
+  
+    xhr.setRequestHeader("Content-Type", "application/json");
+  
+    xhr.addEventListener("load", () => {
+      const greetFromServer = xhr.responseText;
+      console.log(greetFromServer);
+    });
+  
+    xhr.send(JSON.stringify({ name: "Faysal_Durlov" }));
+  }
+  
 
 /* URL path / API   https://supersimplebackend.dev/home   -> here the URL path is home
                     https://supersimplebackend.dev/hello  -> here the URL Path is hello
@@ -876,7 +907,7 @@ xhr_2.send();   // its like placing the order
 
 // fetch works like xhr.open() method. but here the "GET" argument is already by default we have to just give the URL path / API to fetch from
 
-fetch("https://supersimplebackend.dev/cart") // this will send the request to teh backend
+fetch("https://supersimplebackend.dev/cart") // this will send the request to the backend
 
 /*
     fetch() is a promise type funtion. when we call fetch() it returns a promise.
@@ -888,6 +919,9 @@ fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this
 
     console.log(response);    // here this reponse gives us many information like status code, data, and other stuffs. But we want the products list
 
+
+    // response.json() -> program is reading the json of the body its needs time. so can't instantly print it!
+
     return response.json();  // so we use reponse.JSON(). here response.JSON() is an asynchronis code it returns a "promise" so we have to wait for it to complete.
                              // so that our product can be loaded
 
@@ -895,6 +929,7 @@ fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this
 
 
 }).then((productData)=>{
+    // response.json() is completed program has readed the json file now we can print it here after "then"
     // here productData parameter contains the response.JSON() returned value
     console.log(productData);
 })
@@ -926,7 +961,7 @@ LoadProductsFetch().then(()=>{
 
 // For other Request Type
 
-fetch("https://supersimplebackend.dev/orders",{
+const responseFromServer = await fetch("https://supersimplebackend.dev/orders",{
 
     method: "POST",                                 // declaring the request type
 
@@ -934,7 +969,7 @@ fetch("https://supersimplebackend.dev/orders",{
     // declaring the content type of the main massage that will be in the body of the request. header tells the server the format of the request's body
 
 
-    body: json.stringify({                         // this is the body that contains our main massage. since we are sending json as we declare in header. 
+    body: JSON.stringify({                         // this is the body that contains our main massage. since we are sending json as we declare in header. 
                                                   // thats why we are trasforming it into a json object
         cart: [
             {
@@ -951,21 +986,53 @@ fetch("https://supersimplebackend.dev/orders",{
     })
 })
 
-
-
-/*      IN chrome Dev Tool
-
+ServerOutput = await responseFromServer.json() // since responseFromServer.json() is a promise so we have to wait until it completes
 
 
 
 
+// Important 
+async function PostFetch18g(){
+    try{
+        const response = await fetch("https://supersimplebackend.dev/greeting",{
+            method: "POST",
+            headers: {"Conetent-Type": "application/json"}
+        })
+        if(response.status>=400){
+            throw response;
+        }
+    } catch(error){
+        if(error.status === 400){
+            const errorResponse = await error.json()
+            console.log(errorResponse)
+        }else{
+            console.log("Network error. Please try again later.")
+        }
+    }
+}
+PostFetch18g()
+
+/*
+Note:
+    fetch() rejects its Promise ONLY 
+    if:
+        Network failure (no internet)
+        DNS failure
+        CORS block
+        Request never reached the server
+
+    ❌ These throw
+    ✅ HTTP 400, 404, 500 do NOT
+
+    ecause:
+        👉 The request successfully reached the server
+        👉 The server successfully responded
+
+    So from fetch’s perspective:
+        “My job is done.”
+
+so here fetch don't shows error so we manually craeted a error
 */
-
-
-
-
-
-
 
 
 
@@ -1026,6 +1093,12 @@ new Promise((resolve)=>{
 
 
 //=============================================================----============  Promise ===============================================================================------==============
+
+// Important Line --> async, fetch(), await, all are connected to promise. all of these returns a promise
+
+
+
+
 
 
 new Promise((resolve, reject)=>{    // if no issue we execute resolve() otherwise reject(). these resolve and reject are funtions
@@ -1144,7 +1217,7 @@ Note: to have sequential promise to haven We have to return in every then method
 
 //================================================================== ASYNC ==========================================================
 /*
-    async retruns a promise !
+    async functions retruns a promise !
 */
 
 async function loadPage() {
@@ -1153,6 +1226,11 @@ async function loadPage() {
     // this return is like placing a value inside resolve().
 
 } // this code is the shortcut of the code below
+
+// what js sees? it sees a function lets wait for the promise to resolve or reject
+
+
+
 
 function loadPage(){
     return new Promise((resolve)=>{         // shortcut of previous code
@@ -1189,7 +1267,7 @@ console.log("loaded the items. now Do the next step")
              2: more easier to understand. one line of code at a time.
 
     Note: we can only use await inside of an async function
-            and await can only used in promises. not in a callback
+            and await can only used with promises. not in a callback not any other obeject. awaits waits for a promise to finish thats it.
 */
 
 async function outerFuntion() {
@@ -1430,11 +1508,11 @@ try{
 
 
 // we can save multiple parameter using   "&"
-"https://supersimple.dev?keyName_1=123&keyName_2=456" // there are 2 (key: value) pair
+"https://supersimple.dev?keyName_1=123&keyName_2=456" //imagine its a link. there are 2 (key: value) pair
 
 
 // to get these key values we can use this code
-const pageURL = new URL(window.location.href) // this give the url of the page
+const pageURL = new URL(window.location.href) // this gives the url of the page
 console.log(pageURL.searchParams.get("keyName_1")) // output: 123
 console.log(pageURL.searchParams.get("keyName_2")) // output: 456
 
