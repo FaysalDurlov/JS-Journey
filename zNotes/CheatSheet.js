@@ -138,7 +138,7 @@ window.location.href = "some/file/path"  // by this the page url will be changed
 
 // we always type document without window object why? js automaic add this in behind
 // under window we have document, console, elements, alert applicaton(localStorage) like everything it like Mother of all object
-//  under thid window we have document under document we have html etc like this
+//  under thid window we have document. under document we have html etc like this
 
 
 
@@ -924,6 +924,10 @@ fetch("https://supersimplebackend.dev/products").then((response)=>{ // here this
 
     return response.json();  // so we use reponse.JSON(). here response.JSON() is an asynchronis code it returns a "promise" so we have to wait for it to complete.
                              // so that our product can be loaded
+                             // Note: here we using json() so it only reads the json stuctured part only.
+    /* example: here in the response we have product list which is in json format. so we use json method to extract
+                the only json part only
+     */
 
     // so for a promise to finish in "then" method we used return keyword. so this "then" won't go to the next "then" before finishing it
 
@@ -1047,7 +1051,8 @@ export function LoadCart(fun){
     })
     xhr.open("GET","https://supersimplebackend.dev/cart");
     xhr.send()
-    fun(); // this means we will pass a funtino and we want it to execute after all info loading from server
+    fun(); 
+    // this means we will pass a funtion and we want it to execute after all info loading from server
 }
 
 
