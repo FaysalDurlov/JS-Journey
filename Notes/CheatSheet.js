@@ -60,6 +60,7 @@ takes name and price property from object and puts the value in name variable
 //Write or Modify in Obejct
 ObjectName.NewPropertyName = 'and its Value';
 // if NewPropertyName is not in the object then this line will add it with the value
+
 delete object.propertyName;
 // this will remove the property from the  object.
 

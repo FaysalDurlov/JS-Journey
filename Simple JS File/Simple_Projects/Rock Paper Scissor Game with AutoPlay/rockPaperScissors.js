@@ -1,4 +1,13 @@
-score = JSON.parse(localStorage.getItem('score'));
+let score = JSON.parse(localStorage.getItem('score'));
+
+if(!score){
+    score = {
+        wins: 0,
+        loses: 0,
+        ties:0
+    }
+}
+
 
 // localStorage.setItem('score',JSON.stringify(score))
 function updateScores(value){
