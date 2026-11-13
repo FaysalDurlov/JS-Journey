@@ -1,0 +1,143 @@
+p, button{
+    display: inline-block;
+}
+.UberButton{
+    margin-left: 50px;
+    color: white;
+    background-Color: black;
+    border: none;
+    cursor: pointer;
+    height: 36px;
+    width: 106px;
+    font-weight: 400;
+    font-size: 13px;
+    border-radius: 2px;
+}
+
+.AmazonButton{
+    background-color: rgb(249,216,76);
+    border: none;
+    height: 36px;
+    width: 160px;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.GithubButton{
+    margin-left: 30px;
+    background-color: rgb(46,164,79);
+    color: white;
+    border: none;
+    height: 36px;
+    width: 110px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.BootstarpGetstartedButton{
+    background-color: rgb(121,82,179);
+    color: white;
+    border: none;
+    height: 36px;
+    width: 110px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+   
+
+}
+
+.BootstarpDownloadButton{
+    border: none;
+    margin-left: 7px;
+    background-color: white;
+    color: rgb(108,117,125);
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1.5px;
+    height: 36px;
+    width: 110px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+
+.LinkedInApplyButton{
+    height: 36px;
+    width: 230px;
+    font-weight: 600;
+    font-size: 13px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    background-color: rgb(10,103,194);
+    color: white;
+
+}
+
+.LinkedInSaveButton{
+    margin-left: 8px;
+    height: 36px;
+    width: 95px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    background-color: white;
+    color:rgb(10,103,194);
+    border-style: solid;
+    border-width: 1.5px
+
+}
+span{
+    display: block;
+}
+.wrriten_section{
+    margin-top: 100px;
+}
+a{
+    color: rgb(0,113,133);
+}
+h3{
+    font-weight: 900;
+    font-size: 26px;
+}
+.price{
+    color: rgb(0,118,0);
+    font-weight: 700;
+    font-size: 18px
+}
+.delivery{
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.amazonAddCartButton{
+    height: 30px;
+    width: 120px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(255,216,20);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+.BuyNowButton{
+    height: 30px;
+    width: 120px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(255,164,28);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
