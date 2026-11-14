@@ -1,0 +1,205 @@
+div{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.Company{
+    width: 140px
+}
+.UberRequestButton{
+    height: 36px;
+    width: 115px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.1s;
+}
+.UberRequestButton:hover{
+    opacity: 0.8;
+}
+.UberRequestButton:active{
+    opacity: 0.6;
+}
+
+.AmazonAddCartButton{
+    height: 36px;
+    width: 180px;
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(253,209,19);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+.AmazonAddCartButton:hover{
+    background-color: rgb(253,187,19)
+}
+.AmazonAddCartButton:active{
+    background-color: rgb(253,160,19)
+}
+
+.GithubSignButton{
+    height: 36px;
+    width: 105px;
+    border: none;
+    background-color: rgb(40,155,70);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: box-shadow 0.15s,
+        opacity 0.15s;
+}
+.GithubSignButton:hover{
+    box-shadow: 0px 5px 8px 1px rgba(0,0,0,0.15);
+    opacity: 0.9;  
+    /* here horzonal, versical, blur, shadow_radius, color */
+}
+.GithubSignButton:active{
+    box-shadow: 0px 0px white;
+    opacity: 0.7;
+}
+
+.BootstarpGetStartButton{
+    height: 36px;
+    width: 130px;
+    border: none;
+    background-color: rgb(108,71,169);
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    transition: background-color 0.15s,
+        opacity 0.15s;
+}
+
+.BootstarpGetStartButton:hover{
+    background-color: rgb(77,61,169);
+}
+
+.BootstarpGetStartButton:active{
+    opacity: 0.8;
+}
+
+.BootstarpDownloadButton{
+    margin-left: 10px;
+    height: 36px;
+    width: 130px;
+    border: 1.5px solid rgb(106,105,108);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    color: rgb(106,105,108);
+    font-weight: 600;
+    transition: background-color 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.BootstarpDownloadButton:hover{
+    background-color: rgb(106,105,108);
+    color: white;
+}
+
+.BootstarpDownloadButton:active{
+    opacity: 0.8;
+}
+
+.LinkedInApplyButton{
+    height: 36px;
+    width: 210px;
+    border: none;
+    background-color: rgb(12,90,186);
+    color: white;
+    cursor: pointer;
+    border-radius: 18px;
+    font-weight: 600;
+    transition: background-color 0.15s,
+        opacity 0.15s;
+}
+.LinkedInApplyButton:hover{
+    background-color: rgb(14,70,170);
+}
+.LinkedInApplyButton:active{
+    opacity: 0.8;
+}
+
+.LinkedInSaveButton{
+    margin-left: 10px;
+    height: 36px;
+    width: 90px;
+    border: 1.5px solid rgb(12,90,186);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 18px;
+    color: rgb(12,90,186);
+    font-weight: 600;
+    transition: border-width 0.05s,
+        background-color 0.15s;
+}
+
+.LinkedInSaveButton:hover{
+    border-width: 3px;
+    background-color: rgb(223,237,254);
+}
+.LinkedInSaveButton:active{
+    background-color: white;
+}
+.AmazonItemSections{
+    display: block;
+    margin-top: 50px;
+}
+.AmazonLink{
+    color:rgb(0,113,133);
+    transition: color 0.15s;
+}
+.AmazonLink:hover{
+    color: rgb(237, 98, 0);
+}
+
+.price_tag{
+    color: rgb(0,120,2);
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.delivery_msg{
+    font-weight: 500;
+}
+
+.AddToCartButton{
+    border: none;
+    cursor: pointer;
+    height: 36px;
+    width: 110px;
+    background-color: rgb(253,209,19);
+    font-weight: 600;
+    border-radius: 18px;
+    transition: background-color 0.15s,
+        opacity 0.15s;
+}
+.AddToCartButton:hover{
+    background-color: rgb(253,180,5)
+}
+.AddToCartButton:active{
+    opacity: 0.7;
+}
+
+.BuyNowButton{
+    margin-left: 15px;
+    border: none;
+    cursor: pointer;
+    height: 36px;
+    width: 110px;
+    background-color: rgb(253,153,26);
+    border-radius: 18px;
+    font-weight: 600;
+    transition: background-color 0.15s,
+        opacity 0.15s;
+}
+.BuyNowButton:hover{
+    background-color: rgb(255,130,5);
+}
+.BuyNowButton:active{
+    opacity: 0.7;
+}
