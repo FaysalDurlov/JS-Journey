@@ -1,0 +1,57 @@
+p{
+    font-family: Arial;
+    margin-top : 0px;
+    margin-bottom: 0px
+}
+.video_caption{
+    margin-top: 65px;
+    font-size:18px;
+    font-weight: bold;
+    width: 300px;
+    line-height: 24px; 
+
+    /* 
+    This "line-height" is space between lines this 
+    gets half top half bottom 
+
+            |   12px
+            |
+    paragraph_line 1          12+12 = 24 px = line-height
+            | 
+            |    12px
+     
+    */
+}
+.video_stats{
+    margin-top: 5px;
+    color: rgb(96, 96, 96);
+    font-size: 14px;
+}
+.channel_name{
+    margin-top:20px;
+    color: rgb(96, 96, 96);
+    font-size: 14px;
+}
+.discription{
+    margin-top: 18px;
+    width: 280px;
+    color: rgb(96, 96, 96);
+    font-size: 14px;
+    line-height: 20px;
+}
+.apple_text{
+    margin-top: 80px;
+    background-color: rgb(227, 65, 64);
+    color: white;
+    padding: 18px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.shopNowLink{
+    cursor: pointer;
+}
+.shopNowLink:hover{
+     text-decoration: underline;
+}
