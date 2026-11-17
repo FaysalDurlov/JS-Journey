@@ -1,0 +1,181 @@
+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.font_tohoma{
+    font-family: Tahoma;
+    font-weight: 700;
+}
+.dealOfYear{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+.salesEnd{
+    margin-top: 3px;
+    font-family: Arial;
+    font-style: italic;
+    color: rgb(223, 51, 37);
+    font-size: 14px;
+}
+.course_heading{
+    font-family: verdana;
+    font-weight: bold;
+}
+.course_moto{
+    margin-top: 2px;
+    font-family: verdana;
+    font-size: 14px;
+    font-weight: 100;
+    color: gray;
+}
+.course_discription{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 270px;
+    font-family: verdana;
+    font-size: 14px;
+}
+.getStartButton{
+    font-family: verdana;
+    background-color: rgb(56, 126, 35);
+    border: none;
+    color: white;
+    padding: 4px 10px 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 3px 0px 0px 3px;
+    transition: margin 0.2s;
+}
+.getStartButton:hover{
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    margin: 0px 0px 3px 0px;
+}
+.getStartButton:active{
+    box-shadow: none;
+    margin: 3px 0px 0px 3px;
+}
+.ShopBusinessContainer{
+    width: 280px;
+}
+.shopForBusiness{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+}
+.apple_help{
+    font-family: Arial;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11px;
+}
+.learnMore{
+    font-family: Arial;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(82, 102, 173);
+    cursor: pointer;
+}
+.learnMore:hover{
+    text-decoration: underline;
+}
+
+.SuperchargeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+}
+.SuperchargeHeading{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 30px;
+}
+.SuperchargeNew{
+    font-family: Arial;
+    color: rgb(222, 123, 80);
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.MackBookText{
+    margin-top: 5px;
+    font-family: Arial;
+    font-weight: bold;
+}
+.SuperchargePrice{
+    margin-top: 5px;
+    font-family: Arial;
+    color:rgb(29, 29, 29);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.BuyButton{
+    background-color: rgb(49, 111, 220);
+    color: white;
+    border: none;
+    height: 23px;
+    width: 42px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.BuyButton:hover{
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3)
+}
+.PriceUSD{
+    color: grey;
+    margin-left: 5px;
+    font-size: 16px;
+}
+.PriceNumber{
+    font-family: Arial;
+    color: black;
+    font-size: 32px;
+}
+.positive_discount{
+    margin-top: 5px;
+    font-family: Arial;
+    color: rgb(58, 109, 70);
+    font-size: 15px;
+}
+.Afterhour{
+    font-family: Arial;
+    margin-top: 5px;
+    color: grey;
+    font-size: 14px;
+}
+.Negative_discount{
+    color: rgb(178, 57, 57);
+}
+.freeCodeCampheading{
+    font-family: Arial;
+    font-weight: bold;
+}
+.subtitle{
+    font-weight: normal;
+    color: rgb(98, 98, 98);
+}
+.freeCodecampDiscription{
+    margin-top: 5px;
+    font-family: Arial;
+    width: 500px;
+}
+.lastLine{
+    margin-top: 20px;
+    font-family: Arial;
+
+}
+.AtTheRateAddress{
+    color: rgb(83, 150, 225);
+    cursor: pointer;
+}
