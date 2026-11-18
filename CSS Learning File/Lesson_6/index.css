@@ -1,0 +1,81 @@
+body{
+    text-align: center;
+}
+.heding{
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+.subtitle{
+    font-family: Montserrat;
+    font-weight: 500;
+}
+.delivery{
+    cursor: pointer;
+    position: relative;
+}
+.delivery:after{ /* designed the underline just using height and width with backgorund color thats it */
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    bottom: 0px;
+    left: 0px;
+    transition: width 0.5s;
+}
+.delivery:hover::after{
+    width: 100%;
+}
+
+/*          yt -  Codeing2Go
+        position Static | relative | fixed | absolute | Sticky
+
+
+        Static default value EKA "No effect"
+
+        relative 
+                    It means fixing a point and following its cordinates.
+                     in which ever element is used as  position: relative;
+                    it acts like a x,y cordinated for other. so relative is a point and I have to 
+                    adjust other design relative to that "position: relative; element"
+
+                    if a position: relative; element is in x,y position
+                    top: 10px;
+                    left: 5px;
+                    then the element moved from origial position from top 10px from left 5 px
+                    its relative to its origial position
+
+        fixed
+                    It mean in viewport its posision in fixed. all the content in under that element can 
+                    move with scoll but no matter how scroll I do "position: fixed;" element won't move
+                    a single px its like gluing to one position it will flout over other element in viewort
+
+        absolute
+                  it means the element that has position: absolute;  will stick to its parent element
+                  if chile element has position: absolute;  then I just have to place the parent element
+                  because this absolute acts like the chile is a part of the parent both are one element
+                  glued togather in one element
+
+        Sticky 
+                 its similar like fixed but now it can be scroll but it stays on the viewport
+
+
+        Explain:  for this use case
+
+                here the I have made the .delivery relative so now I will follow this element position for
+                my other designs
+                and used absolute so that my under line only can be positioned with its parent class
+        
+
+
+        pesudo code 
+                after added design after the main content
+                "main content+after" = main contentafter
+
+
+                before adds design before the main content
+                "before+main content" = beforemain contentafter
+
+*/
