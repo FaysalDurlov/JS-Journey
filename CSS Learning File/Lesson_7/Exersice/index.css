@@ -1,0 +1,35 @@
+.CatInfoContainer{
+    display: flex;
+    align-items: center;
+}
+.CatTitles{
+    width: 290px;
+}
+.CatImage_1, .CatImage_2, .CatImage_3 {
+    width: 200px;
+    margin-bottom: 5px;
+}
+
+.CatImage_1{
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+.CatImage_2{
+    border: 2px solid red;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: 15%;
+}
+
+.CatImage_3{
+    border: 2px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    position: relative;
+}
+hr{
+    width: 95%;
+}

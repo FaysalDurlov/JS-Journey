@@ -1,0 +1,36 @@
+.CatImage1{
+    width: 100px;
+    /* height:300px; 
+    
+     --  here height is auto adjusted but if I manually give height
+     then the picture won't hold its original aspect ratio. the picture might
+     stretch or squeeze for manual height.
+    
+    */  
+
+
+    height: 500px;
+    object-fit: cover;  
+
+    /* 
+        here the object is fitted inside the defined height & width 
+        if picture don't hold its ratio then its cover this size 
+        like zoomed and cropped
+    
+    */
+    object-position: left; 
+    /* slides to the picture to right side. so the left side can be seen */
+}
+.CatImage2{
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+
+    /* 
+        here the object if fit to contain the entire picture within the defined ration.
+        its like zoom out to fit in that space. the picture is not gets distorted
+    
+    */
+
+    border: 2px solid red;
+}
