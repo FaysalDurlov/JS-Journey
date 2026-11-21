@@ -1,0 +1,210 @@
+.InfoBasicTextField{
+    font-family: Arial;
+    display: block;
+    margin-top: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+.InfoBasicTextField:focus{
+    outline: none;
+}
+
+.CustomerSupprotContainer{
+    margin-top: 10px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 330px;
+    box-shadow: 3px 1px 10px rgba(0,0,0,0.2);
+}
+
+.customerSupportText{ 
+    display: inline-block;
+    font-family: Arial;
+    width: 210px;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.CustomerSupportButton{
+    margin-left: 5px;
+    height: 30px;
+    width: 40px;
+    border: 2px solid rgb(81, 129, 238);
+    border-radius: 15px;
+    background-color: rgb(81, 129, 238);
+    color: white;
+    font-family: Arial;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s,
+        color 0.2s;
+}
+
+.CustomerSupportButton:active{
+    background-color: white;
+    color: rgb(81, 129, 238);
+}
+
+.GoogleSearchEngineContainer{
+    margin-top: 20px;
+    width: 470px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.2)
+    
+}
+
+.googleImage{
+    margin: 0px auto;
+    display: block;
+    width: 200px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.googleSearchTextField{
+    width: 94%;
+    height: 30px;
+    margin-left: 1%;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border: none;
+    font-family: Arial;
+    border-radius: 17px;
+    font-size: 14px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.googleSearchTextField:focus{
+    outline: none;
+}
+
+.SignUpFormContainer{
+    padding: 20px 10px 20px 10px;
+    border: none;
+    margin-top: 40px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.SignUpfirstName{
+    border-radius: 5px;
+    border: 2px solid rgb(227, 227, 227);
+    padding: 10px 0px 10px 10px;
+    width: 44%;
+}
+
+.SignUpLastName{
+    border-radius: 5px;
+    border: 2px solid rgb(227, 227, 227);
+    padding: 10px 0px 10px 10px;
+    width: 44%;
+}
+
+.SignUpEmail{
+    margin-top: 10px;
+    display: block;
+    width: 94%;
+    border-radius: 5px;
+    border: 2px solid rgb(227, 227, 227);
+    padding: 10px 0px 10px 10px;
+}
+
+.SignUpEmail, .SignUpLastName, .SignUpfirstName:focus{
+    outline: none;
+}
+
+.SignUpButton{
+    background-color:rgb(57, 117, 233);
+    border: 2px solid rgb(57, 117, 233);
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    width: 98%;
+    border-radius: 5px;
+    padding: 10px 0px 10px 5px;
+    cursor: pointer;
+    transition: opacity 0.2s,
+        background-color 0.15s
+        color 0.15s;
+}
+
+.SignUpButton:hover{
+    opacity: 0.9;
+}
+
+.SignUpButton:active{
+    background-color: white;
+    color: rgb(57, 117, 233);
+}
+
+.uberRequestformContainer{
+    padding: 10px 10px 10px 10px;
+    margin-top: 40px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.2)
+}
+
+.requestHeading{
+    font-family: Arial;
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.destinationTextfield{
+    display: block;
+    margin-top: 10px;
+}
+
+.pickupTextfield, .destinationTextfield{
+    background-color:rgb(240, 240, 240);
+    font-size: 13px;
+    padding: 10px 0px 10px 7px;
+    border: none;
+    width: 90%;
+}
+.pickupTextfield, .destinationTextfield:focus{
+    outline: none;
+}
+
+.uberRequestformContainer button{
+    margin-top: 30px;
+    margin-bottom: 8px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+}
+
+.UberrequestButton{
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    width: 110px;
+    transition: background-color 0.2s,
+        color 0.2s;
+}
+
+.UberrequestButton:active{
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+.UberScheduleButton{
+    font-weight: bold;
+    font-size: 12px;
+    width: 140px;
+    margin-left: 10px;
+    transition: background-color 0.2s,
+        color 0.2s;
+}
+
+.UberScheduleButton:active{
+    background-color: black;
+    color: white;
+}
