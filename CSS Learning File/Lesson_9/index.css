@@ -1,0 +1,27 @@
+p{
+    margin: 0px 0px;
+}
+.youtubeMusic{
+    background-color: rgba(0, 0, 0,0.9);
+    padding: 15px 5px 10px 10px;
+    width: 250px;
+}
+.youtubeMusicTitle{
+    color: rgb(252, 252, 252);
+    font-family: Arial;
+    font-weight: bold;
+
+}
+.youtubeMusicsSubtitle{
+    color: rgba(252, 252, 252,0.8);
+    margin-top: 13px;
+    font-family: Arial;
+    font-size: 11px;
+}
+.tweeterImageContainer{
+    display: inline-block;
+    background-color: grey;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
