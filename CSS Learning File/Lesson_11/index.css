@@ -1,0 +1,75 @@
+p{
+    margin: 0px 0px;
+}
+.youtubeMusic{
+    background-color: rgba(0, 0, 0,0.9);
+    padding: 15px 5px 10px 10px;
+    width: 250px;
+}
+.youtubeMusicTitle{
+    color: rgb(252, 252, 252);
+    font-family: Arial;
+    font-weight: bold;
+
+}
+.youtubeMusicsSubtitle{
+    color: rgba(252, 252, 252,0.8);
+    margin-top: 13px;
+    font-family: Arial;
+    font-size: 11px;
+}
+
+
+.tweeterMassage{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 350px;
+    padding: 10px 0px 10px 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.6)
+}
+.tweeterImageContainer{
+    display: inline-block;
+    background-color: grey;
+    width: 30px;
+    height: 30px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid green;
+}
+.tweeterImage{
+    width: 230%;
+    height: 230%;
+    object-fit: cover;
+    object-position: -22px -2px;
+}
+.tweetMassageInputField{
+    margin-left: 5px;
+    height: 25px;
+    width: 220px;
+    border: none;
+}
+.tweetMassageInputField:focus{
+    outline: none;
+
+}
+.tweetMassageInputField::placeholder{
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+.tweetButton{
+    margin-left: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(74, 153, 233);
+    font-weight: bold;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 60px;
+    border-radius: 14px;
+    cursor: pointer;
+}
